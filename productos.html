@@ -1,37 +1,331 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Productos - InstaTunning</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos - Instatunning</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Productos</h1>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section id="productos" class="productos-container"></section>
+  <!-- Navbar (Idéntico al de index.html para consistencia) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top main-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo.png" alt="Instatunning Logo" width="40" height="40" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">INICIO</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownCategorias" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              CATEGORÍAS
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownCategorias">
+              <li><a class="dropdown-item" href="productos.html?categoria=rendimiento">Rendimiento</a></li>
+              <li><a class="dropdown-item" href="productos.html?categoria=suspension">Suspensión</a></li>
+              <li><a class="dropdown-item" href="productos.html?categoria=frenos">Frenos</a></li>
+              <li><a class="dropdown-item" href="productos.html?categoria=exterior">Exterior</a></li>
+              <li><a class="dropdown-item" href="productos.html?categoria=interior">Interior</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">MARCAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">OFERTAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">NOSOTROS</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <i class="bi bi-search"></i> <span class="d-lg-none ms-2">Buscar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-cart3"></i> <span class="d-lg-none ms-2">Carrito</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <form id="formulario" class="formulario-producto">
-      <input type="text" id="nombre" placeholder="Nombre del producto" required />
-      <input type="number" id="precio" placeholder="Precio" required />
-      <button type="submit">Agregar producto</button>
-    </form>
+  <!-- Contenido Principal de la Página de Productos -->
+  <main class="container py-5">
+    <div class="row">
+      <!-- Barra Lateral de Filtros (Placeholder) -->
+      <aside class="col-lg-3 mb-4 mb-lg-0">
+        <h4 class="filter-title mb-3">FILTRAR POR</h4>
+        <div class="filter-group mb-4">
+          <h5 class="filter-subtitle">Marca de Coche</h5>
+          <select class="form-select form-select-dark">
+            <option selected>Todas las Marcas</option>
+            <option value="1">BMW</option>
+            <option value="2">Audi</option>
+            <option value="3">Honda</option>
+            <option value="4">Subaru</option>
+          </select>
+        </div>
+        <div class="filter-group mb-4">
+          <h5 class="filter-subtitle">Modelo de Coche</h5>
+          <input type="text" class="form-control form-control-dark" placeholder="Ej: Civic, M3, WRX">
+        </div>
+        <div class="filter-group mb-4">
+          <h5 class="filter-subtitle">Tipo de Pieza</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="tipoEscape">
+            <label class="form-check-label" for="tipoEscape">Escapes</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="tipoSuspension">
+            <label class="form-check-label" for="tipoSuspension">Suspensión</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="tipoFrenos">
+            <label class="form-check-label" for="tipoFrenos">Frenos</label>
+          </div>
+          <!-- Añadir más checkboxes según sea necesario -->
+        </div>
+        <div class="filter-group mb-4">
+          <h5 class="filter-subtitle">Rango de Precio</h5>
+          <label for="priceRange" class="form-label">Hasta: $<span id="priceValue">1500</span></label>
+          <input type="range" class="form-range" min="50" max="3000" step="50" id="priceRange" value="1500" oninput="document.getElementById('priceValue').textContent = this.value;">
+        </div>
+        <button class="btn btn-primary w-100">Aplicar Filtros</button>
+      </aside>
+
+      <!-- Listado de Productos -->
+      <section class="col-lg-9">
+        <header class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="products-page-title" id="categoryTitle">Todos los Productos</h1>
+          <div>
+            <select class="form-select form-select-dark d-inline-block w-auto">
+              <option selected>Ordenar por: Relevancia</option>
+              <option value="1">Precio: Bajo a Alto</option>
+              <option value="2">Precio: Alto a Bajo</option>
+              <option value="3">Más Nuevos</option>
+            </select>
+          </div>
+        </header>
+
+        <div class="row g-4">
+          <!-- Producto 1 (Reutiliza el estilo de .product-card de styles.css) -->
+          <div class="col-md-6 col-lg-4">
+            <div class="product-card">
+              <a href="producto-detalle.html?id=1">
+                <img src="assets/img/producto-turbo.jpg" alt="Turbo Kit Avanzado" class="product-card-img">
+              </a>
+              <div class="product-card-body">
+                <h5 class="product-card-title"><a href="producto-detalle.html?id=1">Turbo Kit X-Gen 500</a></h5>
+                <p class="product-card-brand">MarcaDinámica</p>
+                <p class="product-card-price">$1,250.00</p>
+                <a href="producto-detalle.html?id=1" class="btn btn-outline-primary w-100">Ver Detalles</a>
+              </div>
+            </div>
+          </div>
+          <!-- Producto 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="product-card">
+              <a href="producto-detalle.html?id=2">
+                <img src="assets/img/producto-suspension.jpg" alt="Kit de Suspensión" class="product-card-img">
+              </a>
+              <div class="product-card-body">
+                <h5 class="product-card-title"><a href="producto-detalle.html?id=2">Suspensión ProStreet Coilover</a></h5>
+                <p class="product-card-brand">DropFactory</p>
+                <p class="product-card-price">$899.99</p>
+                <a href="producto-detalle.html?id=2" class="btn btn-outline-primary w-100">Ver Detalles</a>
+              </div>
+            </div>
+          </div>
+          <!-- Producto 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="product-card">
+              <a href="producto-detalle.html?id=3">
+                <img src="assets/img/producto-llantas.jpg" alt="Llantas Forjadas" class="product-card-img">
+              </a>
+              <div class="product-card-body">
+                  <h5 class="product-card-title"><a href="producto-detalle.html?id=3">Llantas Forjadas Razor F19</a></h5>
+                  <p class="product-card-brand">WheelArt</p>
+                  <p class="product-card-price">$450.00 c/u</p>
+                  <a href="producto-detalle.html?id=3" class="btn btn-outline-primary w-100">Ver Detalles</a>
+               </div>
+            </div>
+          </div>
+          <!-- Producto 4 -->
+          <div class="col-md-6 col-lg-4">
+             <div class="product-card">
+               <a href="producto-detalle.html?id=4">
+                 <img src="assets/img/producto-escape.jpg" alt="Sistema de Escape" class="product-card-img">
+               </a>
+               <div class="product-card-body">
+                  <h5 class="product-card-title"><a href="producto-detalle.html?id=4">Escape TitanSport Valvetronic</a></h5>
+                  <p class="product-card-brand">SoundMotive</p>
+                  <p class="product-card-price">$1,800.00</p>
+                  <a href="producto-detalle.html?id=4" class="btn btn-outline-primary w-100">Ver Detalles</a>
+               </div>
+             </div>
+          </div>
+          <!-- Producto 5 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="product-card">
+              <a href="producto-detalle.html?id=5">
+                <img src="assets/img/producto-admision.jpg" alt="Admisión de Aire Frío" class="product-card-img">
+              </a>
+              <div class="product-card-body">
+                <h5 class="product-card-title"><a href="producto-detalle.html?id=5">Admisión CarbonFlow Serie X</a></h5>
+                <p class="product-card-brand">AirMax</p>
+                <p class="product-card-price">$375.00</p>
+                <a href="producto-detalle.html?id=5" class="btn btn-outline-primary w-100">Ver Detalles</a>
+              </div>
+            </div>
+          </div>
+          <!-- Producto 6 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="product-card">
+              <a href="producto-detalle.html?id=6">
+                <img src="assets/img/producto-frenos.jpg" alt="Kit de Frenos Grandes" class="product-card-img">
+              </a>
+              <div class="product-card-body">
+                <h5 class="product-card-title"><a href="producto-detalle.html?id=6">Big Brake Kit Performance</a></h5>
+                <p class="product-card-brand">StopTech</p>
+                <p class="product-card-price">$2,200.00</p>
+                <a href="producto-detalle.html?id=6" class="btn btn-outline-primary w-100">Ver Detalles</a>
+              </div>
+            </div>
+          </div>
+          <!-- Repite la estructura para más productos -->
+        </div>
+
+        <!-- Paginación (Placeholder) -->
+        <nav aria-label="Navegación de productos" class="mt-5">
+          <ul class="pagination justify-content-center pagination-dark">
+            <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 InstaTunning</p>
+  <!-- Footer (Idéntico al de index.html) -->
+  <footer class="bg-dark-custom text-light py-5 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <h5>Instatunning</h5>
+          <p class="small">Potenciando tu pasión por la velocidad y el estilo desde <span id="footerStartYear">2020</span>.</p>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="footer-link">Preguntas Frecuentes</a></li>
+            <li><a href="#" class="footer-link">Política de Envíos</a></li>
+            <li><a href="#" class="footer-link">Devoluciones</a></li>
+            <li><a href="#" class="footer-link">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h5>Categorías</h5>
+          <ul class="list-unstyled">
+            <li><a href="productos.html?categoria=rendimiento" class="footer-link">Rendimiento</a></li>
+            <li><a href="productos.html?categoria=suspension" class="footer-link">Suspensión</a></li>
+            <li><a href="productos.html?categoria=exterior" class="footer-link">Exterior</a></li>
+            <li><a href="productos.html?categoria=interior" class="footer-link">Interior</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h5>Síguenos</h5>
+          <a href="#" class="footer-icon me-2"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="footer-icon me-2"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="footer-icon me-2"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="footer-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <hr class="my-4 border-secondary">
+      <div class="text-center small">
+        © <span id="currentYear"></span> Instatunning. Todos los derechos reservados.
+      </div>
+    </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <!-- Modal de Búsqueda (Idéntico al de index.html) -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark-custom text-light">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="searchModalLabel">Buscar Productos</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control form-control-lg bg-dark text-light border-secondary" placeholder="Buscar por pieza, marca, coche..." aria-label="Buscar productos">
+              <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+          </form>
+          <div class="mt-3">
+            <p class="small">Sugerencias: Turbo, Llantas BMW, Suspensión Civic...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast (Idéntico al de index.html) -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1060">
+    <div id="instaToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMessage">
+          ¡Producto agregado al carrito con éxito!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/scripts.js"></script>
+  <script>
+    // Script para actualizar el título de la categoría dinámicamente (ejemplo)
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoria = urlParams.get('categoria');
+      const categoryTitleEl = document.getElementById('categoryTitle');
+
+      if (categoria && categoryTitleEl) {
+        // Capitalizar la primera letra y reemplazar guiones si es necesario
+        let title = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+        title = title.replace(/-/g, ' '); // Reemplaza guiones con espacios
+        categoryTitleEl.textContent = title;
+
+        // Marcar el link activo en el dropdown del navbar
+        const navDropdownItems = document.querySelectorAll('#navbarDropdownCategorias + .dropdown-menu .dropdown-item');
+        navDropdownItems.forEach(item => {
+            if(item.href.includes(`categoria=${categoria}`)) {
+                item.classList.add('active');
+            }
+        });
+
+      } else if (categoryTitleEl) {
+        categoryTitleEl.textContent = "Todos los Productos";
+      }
+    });
+  </script>
 </body>
 </html>

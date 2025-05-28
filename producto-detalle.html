@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - Tauro Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Reutilizamos los estilos principales -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para la página de detalle si son necesarios */
+        body {
+            padding-top: 20px; /* No necesitamos tanto padding como en la principal por el navbar fijo */
+            background-color: var(--cafe-cream);
+        }
+        .product-detail-container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-detail-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        .product-options li {
+            margin-bottom: 0.5rem;
+        }
+        .breadcrumb-item a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+        .breadcrumb-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Detalle del Producto</li>
+            </ol>
+        </nav>
+
+        <div class="product-detail-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x450/D2B48C/333333?text=Producto" id="product-image" class="product-detail-img" alt="Imagen del Producto">
+                </div>
+                <div class="col-md-6">
+                    <h1 id="product-name" class="section-title text-start">Nombre del Producto</h1>
+                    <p id="product-description" class="lead">Descripción detallada del producto...</p>
+                    
+                    <div id="product-options-section">
+                        <h4>Características y Opciones:</h4>
+                        <ul id="product-options-list" class="list-unstyled product-options">
+                            <!-- Las opciones se cargarán aquí por JS -->
+                        </ul>
+                    </div>
+
+                    <h4 class="mt-4">Precio: <span id="product-price">Consultar</span></h4>
+                    <button class="btn btn-primary btn-lg mt-3">Contactar para Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 fixed-bottom" style="background-color: var(--cafe-brown-dark); color: var(--cafe-beige);">
+        <div class="container">
+            <p>© 2024 Tauro Café. Volver a <a href="index.html" class="footer-link">Página Principal</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const tipo = params.get('tipo');
+            const origen = params.get('origen');
+            const modelo = params.get('modelo');
+            const item = params.get('item');
+
+            const productNameEl = document.getElementById('product-name');
+            const productDescriptionEl = document.getElementById('product-description');
+            const productImageEl = document.getElementById('product-image');
+            const productOptionsListEl = document.getElementById('product-options-list');
+            const breadcrumbProductNameEl = document.getElementById('breadcrumb-product-name');
+
+            // Datos de ejemplo (en una aplicación real, esto vendría de un backend o un objeto JS más grande)
+            let productData = {
+                name: "Producto no encontrado",
+                description: "No se pudo cargar la información del producto.",
+                image: "https://via.placeholder.com/600x450/CCCCCC/FFFFFF?text=Error",
+                options: []
+            };
+
+            if (tipo === 'grano') {
+                productData.description = `Nuestro café en grano de origen ${origen}, tostado a la perfección para resaltar sus notas únicas. Ideal para moler justo antes de preparar y disfrutar de la máxima frescura.`;
+                productData.options = [
+                    "Grano Entero: Bolsa de 1kg",
+                    "Molido Fino (Espresso): Paquetes de 400g, 750g, 1kg",
+                    "Molido Medio (Filtro): Paquetes de 400g, 750g, 1kg",
+                    "Molido Grueso (Prensa Francesa): Paquetes de 400g, 750g, 1kg"
+                ];
+                if (origen === 'colombia') {
+                    productData.name = "Café Tostado Colombia";
+                    productData.image = "https://via.placeholder.com/600x450/A0522D/FFFFFF?text=Café+Colombia";
+                    productData.description += " Presenta un perfil suave y equilibrado, con notas cítricas y achocolatadas."
+                } else if (origen === 'etiopia') {
+                    productData.name = "Café Tostado Etiopía";
+                    productData.image = "https://via.placeholder.com/600x450/8B4513/FFFFFF?text=Café+Etiopía";
+                    productData.description += " Cuna del café, ofrece notas florales y frutales distintivas y una acidez brillante."
+                } else if (origen === 'salta') {
+                    productData.name = "Café Tostado Salta";
+                    productData.image = "https://via.placeholder.com/600x450/C4A484/333333?text=Café+Salta";
+                    productData.description += " Un café de altura con cuerpo intenso, baja acidez y notas a frutos secos y chocolate."
+                } else if (origen === 'bolivia') {
+                    productData.name = "Café Tostado Bolivia";
+                    productData.image = "https://via.placeholder.com/600x450/A0522D/FFFFFF?text=Café+Bolivia";
+                    productData.description += " Caracterizado por su dulzor pronunciado, acidez brillante y deliciosas notas a caramelo y cítricos."
+                } else if (origen === 'brasil') {
+                    productData.name = "Café Tostado Brasil";
+                    productData.image = "https://via.placeholder.com/600x450/8B4513/FFFFFF?text=Café+Brasil";
+                    productData.description += " Ofrece un cuerpo medio, baja acidez reconfortante y clásicas notas a chocolate y nuez."
+                }
+            } else if (tipo === 'capsula') {
+                productData.description = `Disfruta de la conveniencia de nuestras cápsulas compatibles con tu cafetera, llenas del auténtico sabor del café de origen ${origen}.`;
+                productData.options = [
+                    "Pack de 10 unidades",
+                    "Pack de 20 unidades (con descuento especial)"
+                ];
+                if (origen === 'colombia') {
+                    productData.name = "Cápsulas Café Colombia";
+                    productData.image = "https://via.placeholder.com/600x450/A0522D/FFFFFF?text=Cápsulas+Colombia";
+                } else if (origen === 'etiopia') {
+                    productData.name = "Cápsulas Café Etiopía";
+                    productData.image = "https://via.placeholder.com/600x450/8B4513/FFFFFF?text=Cápsulas+Etiopía";
+                } else if (origen === 'salta') {
+                    productData.name = "Cápsulas Café Salta";
+                    productData.image = "https://via.placeholder.com/600x450/C4A484/333333?text=Cápsulas+Salta";
+                }
+                // Añadir más orígenes de cápsulas si es necesario
+            } else if (tipo === 'cafetera') {
+                productData.options = ["Garantía del fabricante: 1 año", "Colores disponibles: Según stock"];
+                if (modelo === 'barista') {
+                    productData.name = "Cafetera Barista Profesional";
+                    productData.description = "Experimenta la extracción perfecta del espresso y la creación de arte latte como un profesional. Esta máquina te ofrece control total sobre la presión, temperatura y tiempo para obtener resultados de cafetería en casa. Incluye vaporizador de leche de alta potencia.";
+                    productData.image = "https://via.placeholder.com/600x450/696969/FFFFFF?text=Cafetera+Barista";
+                } else if (modelo === 'nespresso') {
+                    productData.name = "Cafetera Símil Nespresso";
+                    productData.description = "Diseño moderno, compacto y elegante, perfecta para nuestras cápsulas Tauro Café. Obtén tu café favorito en segundos, de forma limpia y conveniente. Ideal para espacios reducidos y para quienes buscan rapidez y sencillez.";
+                    productData.image = "https://via.placeholder.com/600x450/A9A9A9/333333?text=Cafetera+Cápsulas";
+                } else if (modelo === 'filtro') {
+                    productData.name = "Cafetera Eléctrica de Filtro";
+                    productData.description = "La cafetera clásica para los amantes del café filtrado. Prepara varias tazas a la vez de forma sencilla y mantén el café caliente gracias a su placa calefactora. Perfecta para el hogar o la oficina, ofreciendo un sabor consistente y delicioso.";
+                    productData.image = "https://via.placeholder.com/600x450/D3D3D3/333333?text=Cafetera+Filtro";
+                }
+            } else if (tipo === 'accesorio') {
+                if (item === 'filtros') {
+                    productData.name = "Filtros Especiales para Cafetera de Filtro";
+                    productData.description = "Paquete de 30 unidades de filtros de papel de alta calidad, diseñados para una extracción óptima en cafeteras eléctricas de filtro. Aseguran una bebida limpia, sin sedimentos y con todo el sabor de tu café Tauro.";
+                    productData.image = "https://via.placeholder.com/600x450/F5F5DC/333333?text=Filtros+Especiales";
+                    productData.options = ["Material: Papel blanqueado sin cloro", "Tamaño: Estándar para la mayoría de cafeteras de filtro", "Cantidad: 30 unidades por paquete"];
+                }
+            }
+
+            productNameEl.textContent = productData.name;
+            productDescriptionEl.textContent = productData.description;
+            productImageEl.src = productData.image;
+            productImageEl.alt = productData.name;
+            breadcrumbProductNameEl.textContent = productData.name;
+            document.title = productData.name + " - Tauro Café";
+
+
+            productOptionsListEl.innerHTML = ''; // Limpiar opciones previas
+            if (productData.options && productData.options.length > 0) {
+                productData.options.forEach(opt => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-check-circle text-success me-2"></i>${opt}`; // Puedes añadir un ícono
+                    productOptionsListEl.appendChild(li);
+                });
+            } else {
+                document.getElementById('product-options-section').style.display = 'none';
+            }
+        });
+    </script>
+    <!-- Font Awesome para iconos (opcional, si quieres usar el ícono de check) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
