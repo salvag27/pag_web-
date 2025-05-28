@@ -1,38 +1,173 @@
+/* Tipografía y fondo */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
 }
 
-header, footer {
-  background-color: #2ecc71;
-  color: white;
+/* Encabezado y navegación */
+.header, header {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1.5rem 2rem;
   text-align: center;
-  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header h1, header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #2ecc71;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 10px;
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent;
 }
 
+nav ul li a:hover {
+  color: #2ecc71;
+  border-bottom: 2px solid #2ecc71;
+}
+
+/* Sección principal */
 main {
-  padding: 1rem;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 80vh;
 }
 
-form {
-  margin-top: 2rem;
+section {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-input, textarea {
-  display: block;
+section h2 {
+  font-size: 2rem;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+}
+
+/* Formularios */
+form {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #2ecc71;
+}
+
+input,
+textarea,
+button {
+  display: block;
   width: 100%;
-  max-width: 400px;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  font-family: inherit;
+}
+
+input,
+textarea {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #000;
+}
+
+button {
+  background-color: #2ecc71;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+/* Productos */
+.productos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.productos-container div {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 0 10px #2ecc71;
+}
+
+/* Footer */
+.footer, footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #bbb;
+  border-top: 2px solid #2ecc71;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
+
+/* Fondo con animación GIF */
+body {
+  background: url('https://media.giphy.com/media/xTiTnf9SCIvYI0fLFe/giphy.gif') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(2px);
+}
+
+/* Imagen destacada index */
+.hero-image {
+  border-radius: 10px;
+  max-width: 100%;
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.6);
+}
+
+/* Fondo del formulario de contacto (opcional) */
+.formulario-contacto {
+  background: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+  background-size: cover;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.formulario-contacto form {
+  background-color: rgba(0,0,0,0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  color: #fff;
 }
