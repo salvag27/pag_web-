@@ -42,7 +42,7 @@
     </div>
 
     <!-- Navbar Principal -->
-    <nav class="navbar navbar-expand-lg navbar-dark"> {/* Ya no necesita fixed-top, se controla con CSS */}
+    <nav class="navbar navbar-expand-lg navbar-dark"> 
         <div class="container">
             <a class="navbar-brand" href="index.html">Tauro Café</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,25 +50,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    {/* Los href de estos links deben llevar a las secciones correspondientes */}
+                    
                     <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#granos">Café en Grano</a></li>
                     <li class="nav-item"><a class="nav-link" href="#capsulas">Cápsulas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#cafeteras">Cafeteras</a></li>
                     <li class="nav-item"><a class="nav-link" href="#accesorios">Accesorios</a></li>
-                    {/* <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> Ya está en el pre-navbar */}
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="inicio"> {/* Este ID es para el ancla del link "Inicio" del navbar principal */}
+    <header id="inicio"> 
         <div id="mainCarousel" class="carousel slide main-carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                {/* Indicador del 4to slide eliminado */}
+               
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -95,7 +95,7 @@
                         <a href="#cafeteras" class="btn btn-primary btn-lg carousel-cta-button">Conoce Nuestras Cafeteras</a>
                     </div>
                 </div>
-                {/* Cuarto slide eliminado */}
+                
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -109,8 +109,7 @@
     </header>
 
     <main class="container mt-5">
-        {/* ... (El resto de tus secciones: granos, capsulas, cafeteras, accesorios, contacto) ... */}
-        {/* Asegúrate de que la sección con id="contacto" siga existiendo para el enlace del pre-navbar */}
+        
         <section id="granos" class="py-5">
             <h2 class="text-center mb-4 section-title">Café en Grano y Molido</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -134,7 +133,7 @@
                             <p class="card-text">Notas florales y frutales distintivas. Cuna del café.</p>
                         </div>
                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=grano&origen=etiopia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                            <a href="producto-detalle.html?tipo=grano&origen=etiopia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
@@ -145,8 +144,8 @@
                             <h5 class="card-title">Café Tostado Salta</h5>
                             <p class="card-text">Café de altura, cuerpo intenso y notas a frutos secos.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=grano&origen=salta" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer">
+                            <a href="producto-detalle.html?tipo=grano&origen=salta" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
@@ -157,8 +156,8 @@
                             <h5 class="card-title">Café Tostado Bolivia</h5>
                             <p class="card-text">Dulzor pronunciado, acidez brillante y notas a caramelo.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=grano&origen=bolivia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer">
+                            <a href="producto-detalle.html?tipo=grano&origen=bolivia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
@@ -169,8 +168,8 @@
                             <h5 class="card-title">Café Tostado Brasil</h5>
                             <p class="card-text">Cuerpo medio, baja acidez, notas a chocolate y nuez.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=grano&origen=brasil" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer">
+                            <a href="producto-detalle.html?tipo=grano&origen=brasil" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
@@ -189,7 +188,7 @@
                             <p class="card-text">El balance perfecto de Colombia en tu cafetera de cápsulas.</p>
                         </div>
                         <div class="card-footer">
-                           <a href="producto-detalle.html?tipo=capsula&origen=colombia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                          <a href="producto-detalle.html?tipo=capsula&origen=colombia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
@@ -201,11 +200,11 @@
                             <p class="card-text">Notas florales y frutales ahora en formato cápsula.</p>
                         </div>
                         <div class="card-footer">
-                           <a href="producto-detalle.html?tipo=capsula&origen=etiopia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                          <a href="producto-detalle.html?tipo=capsula&origen=etiopia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
-                 <div class="col">
+                <div class="col">
                     <div class="card h-100 product-card">
                         <img src="https://via.placeholder.com/400x300/C4A484/333333?text=Cápsulas+Salta" class="card-img-top" alt="Cápsulas Salta">
                         <div class="card-body">
@@ -213,7 +212,7 @@
                             <p class="card-text">La intensidad de Salta en la comodidad de una cápsula.</p>
                         </div>
                         <div class="card-footer">
-                           <a href="producto-detalle.html?tipo=capsula&origen=salta" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                          <a href="producto-detalle.html?tipo=capsula&origen=salta" class="btn btn-sm btn-outline-primary">Ver detalles</a>
                         </div>
                     </div>
                 </div>
@@ -231,8 +230,8 @@
                             <h5 class="card-title">Cafetera Barista Profesional</h5>
                             <p class="card-text">Para los amantes del espresso perfecto y el arte latte.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=cafetera&modelo=barista" class="btn btn-sm btn-outline-primary">Más info</a>
+                        <div class="card-footer">
+                            <a href="producto-detalle.html?tipo=cafetera&modelo=barista" class="btn btn-sm btn-outline-primary">Más info</a>
                         </div>
                     </div>
                 </div>
@@ -243,8 +242,8 @@
                             <h5 class="card-title">Cafetera Símil Nespresso</h5>
                             <p class="card-text">Diseño compacto y elegante para disfrutar nuestras cápsulas.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=cafetera&modelo=nespresso" class="btn btn-sm btn-outline-primary">Más info</a>
+                        <div class="card-footer">
+                            <a href="producto-detalle.html?tipo=cafetera&modelo=nespresso" class="btn btn-sm btn-outline-primary">Más info</a>
                         </div>
                     </div>
                 </div>
@@ -255,8 +254,8 @@
                             <h5 class="card-title">Cafetera Eléctrica de Filtro</h5>
                             <p class="card-text">Ideal para preparar varias tazas a la vez. Sabor clásico.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=cafetera&modelo=filtro" class="btn btn-sm btn-outline-primary">Más info</a>
+                        <div class="card-footer">
+                          <a href="producto-detalle.html?tipo=cafetera&modelo=filtro" class="btn btn-sm btn-outline-primary">Más info</a>
                         </div>
                     </div>
                 </div>
@@ -274,8 +273,8 @@
                             <h5 class="card-title">Filtros Especiales (30 unidades)</h5>
                             <p class="card-text">Filtros de papel de alta calidad para tu cafetera eléctrica.</p>
                         </div>
-                         <div class="card-footer">
-                             <a href="producto-detalle.html?tipo=accesorio&item=filtros" class="btn btn-sm btn-outline-primary">Comprar</a>
+                        <div class="card-footer">
+                            <a href="producto-detalle.html?tipo=accesorio&item=filtros" class="btn btn-sm btn-outline-primary">Comprar</a>
                         </div>
                     </div>
                 </div>
