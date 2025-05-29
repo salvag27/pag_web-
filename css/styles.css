@@ -1,108 +1,161 @@
-/* Paleta de colores tenues relacionados con el café */
 :root {
-    --cafe-brown-dark: #4a3b31;    /* Marrón oscuro, como grano tostado intenso */
-    --cafe-brown-medium: #7B5E4D; /* Marrón medio, como café con leche */
-    --cafe-brown-light: #A08A7A;  /* Marrón claro, como espuma de capuccino */
-    --cafe-beige: #D2B48C;        /* Beige, como café muy claro o tan */
-    --cafe-cream: #F5F5DC;        /* Crema, color hueso */
-    --primary-accent: #c7a17a;    /* Un tono dorado/bronce suave para acentos y CTAs */
-    --text-dark: #3a2e27;         /* Un marrón muy oscuro para texto principal, más cálido que negro puro */
+    --cafe-brown-dark: #4a3b31;
+    --cafe-brown-medium: #7B5E4D;
+    --cafe-brown-light: #A08A7A;
+    --cafe-beige: #D2B48C;
+    --cafe-cream: #F5F5DC;
+    --primary-accent: #c7a17a;
+    --text-dark: #3a2e27;
     --text-light: #f8f9fa;
-    --text-muted-cafe: #6c5e53;   /* Para textos secundarios o descripciones sutiles */
+    --text-muted-cafe: #6c5e53;
+    --cafe-brown-dark-rgb: 74,59,49;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-dark);
-    padding-top: 70px; /* Aumentar ligeramente si el navbar es más alto con el nuevo brand */
+    
+    padding-top: 115px; 
     background-color: var(--cafe-cream);
     line-height: 1.6;
 }
 
-/* Navbar */
+
+.pre-navbar {
+    background-color: var(--cafe-brown-medium); 
+    padding: 0.3rem 1rem;
+    color: var(--cafe-cream);
+    font-size: 0.85rem;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1031; 
+    border-bottom: 1px solid var(--cafe-brown-dark); 
+}
+.pre-navbar .container-fluid { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pre-navbar-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cafe-beige);
+    text-decoration: none;
+}
+.pre-navbar-logo:hover {
+    color: var(--primary-accent);
+}
+.pre-navbar .nav-link {
+    color: var(--cafe-beige);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.9rem;
+}
+.pre-navbar .nav-link:hover {
+    color: var(--primary-accent);
+}
+.pre-navbar .dropdown-menu {
+    background-color: var(--cafe-brown-medium);
+    border: 1px solid var(--cafe-brown-dark);
+}
+.pre-navbar .dropdown-item {
+    color: var(--cafe-beige);
+    font-size: 0.9rem;
+}
+.pre-navbar .dropdown-item:hover {
+    background-color: var(--cafe-brown-dark);
+    color: var(--primary-accent);
+}
+
+
+
 .navbar {
     background-color: var(--cafe-brown-dark) !important;
     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
+    position: fixed; 
+    top: 45px; 
+    left: 0;
+    right: 0;
+    z-index: 1030;
 }
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 2rem; /* Ligeramente más grande */
+    font-size: 2rem;
     color: var(--cafe-beige) !important;
     transition: color 0.3s ease;
 }
 .navbar-brand:hover {
     color: var(--primary-accent) !important;
 }
-.nav-link {
+.navbar .nav-link { 
     color: var(--cafe-beige) !important;
-    font-weight: 400; /* Cambiado de 400 a 500 para un poco más de peso */
+    font-weight: 400;
     font-size: 1rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     transition: color 0.3s ease, transform 0.2s ease;
 }
-.nav-link:hover {
+.navbar .nav-link:hover { 
     color: var(--primary-accent) !important;
     transform: translateY(-2px);
 }
-.nav-link.active {
+.navbar .nav-link.active {
     color: var(--primary-accent) !important;
-    font-weight: 700; /* Más destacado el activo */
+    font-weight: 700;
 }
 
-
-/* Main Carousel Header */
 .main-carousel .carousel-item {
-    height: 85vh; /* Un poco más alto */
-    min-height: 500px;
+    height: 35vh;
+    min-height: 300px; 
 }
 .main-carousel .carousel-item img {
     object-fit: cover;
     height: 100%;
-    filter: brightness(0.6); /* Oscurecer un poco más para mejor contraste del texto */
+    filter: brightness(0.6);
 }
 .main-carousel .carousel-caption {
-    background: linear-gradient(to top, rgba(42, 30, 23, 0.7), rgba(42, 30, 23, 0)); /* Gradiente sutil en el caption */
-    bottom: 0; /* Pegado abajo */
+    background: linear-gradient(to top, rgba(42, 30, 23, 0.7), rgba(42, 30, 23, 0));
+    bottom: 0;
     left:0;
     right:0;
-    padding: 2rem 10%; /* Más padding horizontal */
+    padding: 1rem 10%; 
     text-align: center;
 }
 .main-carousel .carousel-title-main {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem; /* Título más grande */
+    font-size: 2.2rem; 
     color: var(--text-light);
     font-weight: 700;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 .main-carousel .carousel-caption p {
-    font-size: 1.3rem; /* Párrafo más grande */
+    font-size: 1rem; 
     color: var(--cafe-cream);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     font-weight: 300;
 }
 .main-carousel .carousel-cta-button {
-    font-size: 1.1rem;
-    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 .carousel-indicators [data-bs-target] {
-    background-color: var(--primary-accent); /* Indicadores con color de acento */
+    background-color: var(--primary-accent);
 }
 
-/* Títulos de Sección */
 .section-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: var(--cafe-brown-dark);
-    margin-bottom: 1rem; /* Reducir un poco el margen inferior */
+    margin-bottom: 1rem;
     position: relative;
     padding-bottom: 0.75rem;
     font-size: 2.5rem;
@@ -113,17 +166,16 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    width: 100px; /* Más larga la línea */
-    height: 4px;  /* Más gruesa */
+    width: 100px;
+    height: 4px;
     background-color: var(--primary-accent);
     border-radius: 2px;
 }
-/* Para títulos alineados a la izquierda en la página de detalle */
 .section-title.text-start::after {
     left: 0;
     transform: translateX(0);
 }
-.sub-section-description { /* Estilo para los párrafos descriptivos debajo de los títulos de sección */
+.sub-section-description {
     color: var(--text-muted-cafe);
     font-size: 1.1rem;
     max-width: 700px;
@@ -131,22 +183,13 @@ body {
     margin-right: auto;
 }
 
-
-/* Cards de Producto */
 .product-card {
-    border: none; /* Quitar borde por defecto */
-    border-radius: 12px; /* Bordes más redondeados */
+    border: none;
+    border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: #fff;
-    box-shadow: 0 5px 15px rgba(var(--cafe-brown-dark-rgb), 0.08); /* Sombra más sutil y color temático */
-                                                                    /* Necesitaríamos definir --cafe-brown-dark-rgb: 74,59,49; */
+    box-shadow: 0 5px 15px rgba(var(--cafe-brown-dark-rgb), 0.08);
 }
-/* Para usar el color en rgba, necesitamos definirlo con valores RGB en :root */
-:root {
-    --cafe-brown-dark-rgb: 74,59,49; /* Para usar en box-shadow con opacidad */
-    /* ... (resto de variables) ... */
-}
-
 .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(var(--cafe-brown-dark-rgb), 0.15);
@@ -159,34 +202,33 @@ body {
 }
 .product-card .card-body {
     color: var(--text-dark);
-    padding: 1.5rem; /* Más padding interno */
+    padding: 1.5rem;
 }
 .product-card .card-title {
     font-family: 'Playfair Display', serif;
     color: var(--cafe-brown-dark);
     font-weight: 700;
-    font-size: 1.4rem; /* Ligeramente más grande */
+    font-size: 1.4rem;
     margin-bottom: 0.75rem;
 }
 .product-card .card-text {
     font-size: 0.95rem;
-    color: var(--text-muted-cafe); /* Usar color temático para texto secundario */
-    min-height: 4.5em; /* Ajustar para 3 líneas de texto aprox */
+    color: var(--text-muted-cafe);
+    min-height: 4.5em;
     line-height: 1.5;
 }
 .product-card .card-footer {
     background-color: transparent;
-    border-top: 1px solid #eee; /* Borde superior más sutil */
-    text-align: center; /* Centrar botón */
+    border-top: 1px solid #eee;
+    text-align: center;
     padding: 1rem 1.5rem;
 }
 
-/* Botones */
 .btn-primary {
     background-color: var(--primary-accent);
     border-color: var(--primary-accent);
-    color: var(--cafe-brown-dark); /* Texto oscuro sobre acento claro */
-    font-weight: 500; /* Un poco más de peso */
+    color: var(--cafe-brown-dark);
+    font-weight: 500;
     padding: 0.6rem 1.5rem;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
@@ -196,7 +238,7 @@ body {
     color: var(--text-light);
     transform: translateY(-2px);
 }
-.btn-outline-primary { /* Botón "Ver detalles" en las cards */
+.btn-outline-primary {
     color: var(--cafe-brown-medium);
     border-color: var(--cafe-brown-medium);
     font-weight: 500;
@@ -209,24 +251,21 @@ body {
     transform: translateY(-2px);
 }
 
-
-/* Secciones con fondo alterno y CTA de Contacto */
 .bg-light-brown {
     background-color: var(--cafe-beige);
-    padding-top: 4rem; /* Más espaciado vertical */
+    padding-top: 4rem;
     padding-bottom: 4rem;
 }
 .bg-light-brown .section-title,
 .bg-light-brown .sub-section-description {
-    color: var(--cafe-brown-dark); /* Asegurar contraste en fondo beige */
+    color: var(--cafe-brown-dark);
 }
 .bg-light-brown .section-title::after{
-    background-color: var(--cafe-brown-dark); /* Línea del título más oscura sobre fondo beige */
+    background-color: var(--cafe-brown-dark);
 }
 
-
 .contact-cta-section {
-    background-color: var(--cafe-brown-medium); /* Fondo temático para el CTA final */
+    background-color: var(--cafe-brown-medium);
     color: var(--cafe-cream);
     padding: 4rem 0;
 }
@@ -237,7 +276,7 @@ body {
 .contact-cta-section .section-title::after {
     background-color: var(--cafe-cream);
 }
-.contact-cta-section .btn-primary { /* Botón dentro de esta sección */
+.contact-cta-section .btn-primary {
     background-color: var(--cafe-cream);
     border-color: var(--cafe-cream);
     color: var(--cafe-brown-dark);
@@ -248,7 +287,6 @@ body {
     color: var(--cafe-brown-dark);
 }
 
-/* Footer */
 .main-footer {
     background-color: var(--cafe-brown-dark);
     color: var(--cafe-beige);
@@ -264,7 +302,6 @@ body {
     text-decoration: underline !important;
 }
 
-/* Toast */
 .toast {
     background-color: var(--cafe-brown-dark);
     color: var(--text-light);

@@ -12,7 +12,37 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    
+    <div class="pre-navbar">
+        <div class="container-fluid">
+            <a href="index.html" class="pre-navbar-logo">
+                
+                Tauro Café Logo
+            </a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sucursales</a> 
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProductos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Productos
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProductos">
+                        <li><a class="dropdown-item" href="#granos">Café en Grano y Molido</a></li>
+                        <li><a class="dropdown-item" href="#capsulas">Cápsulas de Café</a></li>
+                        <li><a class="dropdown-item" href="#cafeteras">Cafeteras</a></li>
+                        <li><a class="dropdown-item" href="#accesorios">Accesorios</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navbar Principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark"> {/* Ya no necesita fixed-top, se controla con CSS */}
         <div class="container">
             <a class="navbar-brand" href="index.html">Tauro Café</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,24 +50,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    {/* Los href de estos links deben llevar a las secciones correspondientes */}
                     <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#granos">Café en Grano</a></li>
                     <li class="nav-item"><a class="nav-link" href="#capsulas">Cápsulas</a></li>
                     <li class="nav-item"><a class="nav-link" href="#cafeteras">Cafeteras</a></li>
                     <li class="nav-item"><a class="nav-link" href="#accesorios">Accesorios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    {/* <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> Ya está en el pre-navbar */}
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="inicio">
+    <header id="inicio"> {/* Este ID es para el ancla del link "Inicio" del navbar principal */}
         <div id="mainCarousel" class="carousel slide main-carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button> {/* Dejamos 4 indicadores por si añades la de accesorios */}
+                {/* Indicador del 4to slide eliminado */}
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -64,14 +95,7 @@
                         <a href="#cafeteras" class="btn btn-primary btn-lg carousel-cta-button">Conoce Nuestras Cafeteras</a>
                     </div>
                 </div>
-                <div class="carousel-item"> {/* Slide para Accesorios - REEMPLAZA CON TU IMAGEN */}
-                    <img src="https://via.placeholder.com/1920x700/D2B48C/333333?text=Accesorios+Esenciales+Cafeteros" class="d-block w-100" alt="Accesorios Esenciales para Café Tauro Café">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="carousel-title-main">Accesorios que Hacen la Diferencia</h5>
-                        <p>Completa tu experiencia cafetera con filtros de calidad y otros complementos esenciales.</p>
-                        <a href="#accesorios" class="btn btn-primary btn-lg carousel-cta-button">Ver Accesorios</a>
-                    </div>
-                </div>
+                {/* Cuarto slide eliminado */}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -85,6 +109,8 @@
     </header>
 
     <main class="container mt-5">
+        {/* ... (El resto de tus secciones: granos, capsulas, cafeteras, accesorios, contacto) ... */}
+        {/* Asegúrate de que la sección con id="contacto" siga existiendo para el enlace del pre-navbar */}
         <section id="granos" class="py-5">
             <h2 class="text-center mb-4 section-title">Café en Grano y Molido</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -155,11 +181,8 @@
             <h2 class="text-center mb-4 section-title">Cápsulas de Café</h2>
             <p class="text-center mb-4 sub-section-description">Mismos exquisitos sabores, ahora en prácticas cápsulas compatibles.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                {/* --- IMÁGENES PARA CÁPSULAS PENDIENTES --- */}
-                {/* Ejemplo si tuvieras capsulas_colombia_card.jpg */}
                 <div class="col">
                     <div class="card h-100 product-card">
-                        {/* <img src="assets/img/capsulas_colombia_card.jpg" class="card-img-top" alt="Cápsulas Colombia"> */}
                         <img src="https://via.placeholder.com/400x300/A0522D/FFFFFF?text=Cápsulas+Colombia" class="card-img-top" alt="Cápsulas Colombia">
                         <div class="card-body">
                             <h5 class="card-title">Cápsulas Café Colombia</h5>
@@ -244,10 +267,8 @@
             <h2 class="text-center mb-4 section-title">Accesorios Esenciales</h2>
             <p class="text-center mb-4 sub-section-description">Los complementos perfectos para tu ritual cafetero.</p>
             <div class="row justify-content-center">
-                 {/* --- IMAGEN PARA FILTROS PENDIENTE --- */}
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 product-card">
-                        {/* <img src="assets/img/filtros_cafe_card.jpg" class="card-img-top" alt="Filtros Especiales para Cafetera"> */}
                         <img src="https://via.placeholder.com/400x300/F5F5DC/333333?text=Filtros+Especiales" class="card-img-top" alt="Filtros Especiales para Cafetera">
                         <div class="card-body">
                             <h5 class="card-title">Filtros Especiales (30 unidades)</h5>
@@ -272,7 +293,7 @@
         <div class="container">
             <p>© 2024 Tauro Café. Todos los derechos reservados.</p>
             <p>
-                <a href="#" class="text-decoration-none footer-link">Política de Privacidad</a> | 
+                <a href="#" class="text-decoration-none footer-link">Política de Privacidad</a> |
                 <a href="#" class="text-decoration-none footer-link">Términos de Servicio</a>
             </p>
         </div>
