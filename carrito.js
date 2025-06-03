@@ -201,4 +201,7 @@ function actualizarContadorIconoCarrito() {
         span.textContent = totalItems;
     });
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b87fb5e195b14730a6a9f6a03bdb4fa2dd957f18
