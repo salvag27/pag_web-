@@ -1,4 +1,4 @@
-// carrito.js - Lógica para Tauro Café, basada en tu script de "Riche"
+
 
 let carrito = JSON.parse(localStorage.getItem('carritoTauroCafe')) || [];
 
@@ -202,5 +202,3 @@ function actualizarContadorIconoCarrito() {
     });
 }
 
-// La lógica de calcularTotalCarrito y listaprecios ya está integrada en mostrarCarrito() con reduce.
-// Ya no necesitas `listaprecios` y `calcularTotalCarrito` como funciones separadas si el total solo se muestra allí.
