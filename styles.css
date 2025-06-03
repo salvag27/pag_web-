@@ -9,26 +9,25 @@
     --text-light: #f8f9fa;
     --text-muted-cafe: #6c5e53;
     --cafe-brown-dark-rgb: 74,59,49;
-    --navbar-height: 70px;          /* Altura de la navbar */
+    --navbar-height: 100px;          /* Altura de la navbar */
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-dark);
-    padding-top: var(--navbar-height); /* MUY IMPORTANTE: Espacio para la navbar fija */
+    padding-top: var(--navbar-height)!important;/* MUY IMPORTANTE: Espacio para la navbar fija */
     background-color: var(--cafe-cream);
     line-height: 1.6;
 }
 
 /* --- Navbar Principal --- */
 .navbar-custom {
-    background-color: var(--cafe-brown-dark) !important; /* Fondo sólido oscuro */
+    background-color: var(--cafe-brown-dark) !important; /* Fondo marrón */
+    color: white;
     min-height: var(--navbar-height);
     width: 100%;
-    padding-top: 0.5rem; /* Espaciado interno vertical */
-    padding-bottom: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
-    z-index: 1030; /* Asegura que esté por encima (Bootstrap usa 1030 para fixed-top) */
+    padding: 1em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .navbar-custom .navbar-brand {
@@ -39,6 +38,7 @@ body {
     transition: color 0.3s ease;
     padding-left: 1rem;
 }
+
 .navbar-custom .navbar-brand:hover {
     color: var(--primary-accent) !important;
 }
@@ -53,36 +53,41 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
     color: var(--primary-accent) !important;
 }
+
 .navbar-custom .nav-link.active {
     font-weight: 500;
 }
 
 .navbar-custom .navbar-toggler {
-    border-color: rgba(var(--cafe-beige), 0.5); /* Borde con el color beige de texto, semitransparente */
+    border-color: rgba(var(--cafe-beige), 0.5);
 }
+
 .navbar-custom .navbar-toggler-icon {
-    /* SVG para un icono de hamburguesa claro que contraste con el fondo oscuro */
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(210,180,140,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-custom .dropdown-menu {
-    background-color: var(--cafe-brown-dark); /* Mismo fondo que la navbar */
+    background-color: var(--cafe-brown-dark);
     border: 1px solid var(--cafe-brown-medium);
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
+
 .navbar-custom .dropdown-item {
     color: var(--cafe-beige);
     font-size: 0.9rem;
 }
+
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
-    background-color: var(--cafe-brown-medium); /* Color de hover dentro del dropdown */
+    background-color: var(--cafe-brown-medium);
     color: var(--primary-accent);
 }
+
 
 /* Dropdown de Sucursales Personalizado */
 .dropdown-menu-sucursales {
@@ -116,47 +121,11 @@ body {
     font-weight: bold;
 }
 
-/* --- ESTILOS ANTIGUOS DEL CAROUSEL (COMENTADOS O ELIMINADOS) --- */
-/*
-.main-carousel {
-    width: 100%;
-    overflow: hidden;
-}
-.main-carousel .carousel-item img {
-    min-height: 400px;
-    max-height: calc(100vh - var(--navbar-height));
-    object-fit: cover;
-    filter: brightness(0.6);
-}
-.main-carousel .carousel-caption {
-    background: linear-gradient(to top, rgba(var(--cafe-brown-dark-rgb), 0.85), rgba(var(--cafe-brown-dark-rgb), 0));
-    padding: 1.5rem 5%;
-}
-.main-carousel .carousel-title-main {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    font-family: 'Playfair Display', serif;
-}
-.main-carousel .carousel-caption p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-.main-carousel .carousel-cta-button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.5rem;
-}
-.carousel-indicators [data-bs-target] {
-    background-color: var(--primary-accent);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 0 4px;
-}
-*/
+
 
 /* --- NUEVOS ESTILOS PARA LA SECCIÓN DE PORTADA (HERO) --- */
 #hero-portada {
-    background-image: linear-gradient(rgba(var(--cafe-brown-dark-rgb), 0.4), rgba(var(--cafe-brown-dark-rgb), 0.6)), url('assets/img/portada_cafe_fondo.jpg'); /* <<<<<<< ¡ASEGÚRATE DE TENER ESTA IMAGEN! */
+    background-image: linear-gradient(rgba(var(--cafe-brown-dark-rgb), 0.4), rgba(var(--cafe-brown-dark-rgb), 0.6)), url('assets/img/portada_cafe_fondo'); /* <<<<<<< ¡ASEGÚRATE DE TENER ESTA IMAGEN! */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -243,30 +212,6 @@ body {
     color: var(--cafe-brown-dark) !important;
 }
 
-
-/* --- SECCIONES Y TÍTULOS --- */
-/* (los estilos de .section-title, .sub-section-description que ya tenías permanecen igual) */
-
-/* --- TARJETAS DE PRODUCTO --- */
-/* (los estilos de .product-card, etc. que ya tenías permanecen igual) */
-
-/* --- BOTONES --- */
-/* (los estilos de .btn-primary, .btn-outline-secondary que ya tenías permanecen igual) */
-
-/* --- SECCIONES CON FONDOS ESPECIALES --- */
-/* (los estilos de .bg-light-brown, .contact-cta-section que ya tenías permanecen igual) */
-
-/* --- FOOTER --- */
-/* (los estilos de .main-footer, .footer-link que ya tenías permanecen igual) */
-
-/* --- OFFCANVAS DEL CARRITO --- */
-/* (los estilos de #carritoOffcanvasTauro, .producto-en-carrito que ya tenías permanecen igual) */
-
-/* --- TOAST DE NOTIFICACIÓN --- */
-/* (los estilos de #productoAgregadoTauroToast que ya tenías permanecen igual) */
-
-/* Si tienes estilos específicos para `producto-detalle.html` aquí, deberían estar bien */
-/* Ejemplo de la imagen en product-detail.html */
 .product-detail-img {
     max-width: 100%;
     height: auto;
