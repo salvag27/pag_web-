@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 const targetElement = document.querySelector(href);
                 if (targetElement) {
-
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             }
         });
