@@ -1,64 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Detalle del Producto - Tauro Café</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="style.css"> {/* RUTA DIRECTA */}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-<style>
-    /* ... (puedes mantener tus estilos inline o moverlos a style.css) ... */
-    body { background-color: var(--cafe-cream); }
-    .product-detail-container { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 2rem; margin-bottom: 4rem; }
-    .product-detail-img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1.5rem; }
-    .breadcrumb-item a { color: var(--primary-accent); text-decoration: none; }
-    .breadcrumb-item a:hover { text-decoration: underline; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - Tauro Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar (ASEGÚRATE QUE SEA IDÉNTICA A LA DE INDEX.HTML EN ESTRUCTURA Y IDs/CLASES RELEVANTES PARA EL CARRITO) -->
+
+    <!-- Navbar (sin cambios respecto a tu versión funcional) -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Tauro Café</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavPrincipalDetail" aria-controls="navbarNavPrincipalDetail" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-        <div class="collapse navbar-collapse" id="navbarNavPrincipalDetail">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProductosMenuDetail" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProductosMenuDetail">
-                <li><a class="dropdown-item" href="index.html#granos">Café en Grano y Molido</a></li>
-                <li><a class="dropdown-item" href="index.html#capsulas">Cápsulas de Café</a></li>
-                <li><a class="dropdown-item" href="index.html#cafeteras">Cafeteras</a></li>
-                <li><a class="dropdown-item" href="index.html#accesorios">Accesorios</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="sucursalesDropdownDetail" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sucursales</a>
-            <div class="dropdown-menu dropdown-menu-sucursales dropdown-menu-end p-3" aria-labelledby="sucursalesDropdownDetail">
-            <h5 class="text-center mb-3">Conoce nuestras sucursales</h5>
-            <img src="assets/img/placeholder_sucursal.jpg" alt="Foto Sucursal" class="img-fluid rounded mb-2" id="foto-sucursal-placeholder-detail">
-            <p class="text-center small">Próximamente más información.</p>
+            <div class="collapse navbar-collapse" id="navbarNavPrincipalDetail">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProductosMenuDetail" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProductosMenuDetail">
+                            <li><a class="dropdown-item" href="index.html#granos">Café en Grano y Molido</a></li>
+                            <li><a class="dropdown-item" href="index.html#capsulas">Cápsulas de Café</a></li>
+                            <li><a class="dropdown-item" href="index.html#cafeteras">Cafeteras</a></li>
+                            <li><a class="dropdown-item" href="index.html#accesorios">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="sucursales.html">Sucursales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" id="botonAbrirCarritoTauroDetail" role="button" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvasTauro" aria-controls="carritoOffcanvasTauro">
+                            <i class="bi bi-cart-fill fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger contador-carrito-display">0</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
-        <li class="nav-item">
-            <a class="nav-link position-relative" href="#" id="botonAbrirCarritoTauroDetail" role="button" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvasTauro" aria-controls="carritoOffcanvasTauro">
-            <i class="bi bi-cart-fill fs-5"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger contador-carrito-display">0</span>
-            </a>
-        </li>
-        </ul>
+        </div>
     </nav>
 
-  <!-- OFFCANVAS DEL CARRITO (EXACTAMENTE EL MISMO que en index.html) -->
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="carritoOffcanvasTauro"  aria-labelledby="carritoOffcanvasTauroLabel">
+    <!-- OFFCANVAS DEL CARRITO (sin cambios) -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="carritoOffcanvasTauro" aria-labelledby="carritoOffcanvasTauroLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="carritoOffcanvasTauroLabel">Tu Carrito - Tauro Café</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
@@ -70,56 +58,60 @@
         </div>
     </div>
     
-    <div class="container mt-5 mb-5">
-        <nav aria-label="breadcrumb" style="margin-top: 70px;"> 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li> {/* RUTA DIRECTA */}
-            <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Detalle del Producto</li>
-        </ol>
+    <!-- Contenido Principal de la Página de Detalle -->
+    <main class="container mt-5 mb-5">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Detalle del Producto</li>
+            </ol>
         </nav>
 
         <div class="product-detail-container">
-        <div class="row">
-            <div class="col-md-6">
-            <img src="assets/img/placeholder_producto_grande.jpg" id="product-image" class="product-detail-img" alt="Imagen del Producto"> {/* Placeholder, se actualizará por JS */}
-            </div>
-            <div class="col-md-6">
-            <h1 id="product-name" class="section-title text-start">Nombre del Producto</h1>
-            <p id="product-description" class="lead">Descripción detallada del producto...</p>
-            
-            <div id="product-options-section" style="display:none;"> {/* Oculto por defecto, mostrar si hay opciones */}
-                <h4>Características y Opciones:</h4>
-                <ul id="product-options-list" class="list-unstyled product-options"></ul>
-            </div>
+            <div class="row g-4 align-items-start">
+                <!-- Columna izquierda: Imagen -->
+                <div class="col-md-6">
+                    <img src="assets/img/placeholder_producto_grande.jpg" id="product-image" class="product-detail-img img-fluid" alt="Imagen del Producto">
+                </div>
 
-            <h4 class="mt-4">Precio: <span id="product-price-detail">$0.00</span></h4>
-            
-            {/* BOTÓN AGREGAR AL CARRITO: 
-                - ID para manipularlo desde el script de esta página.
-                - CLASE "botonAgregarTauro" para que carrito.js le añada el listener.
-                - DATA-ATTRIBUTES se poblarán por el script de esta página.
-            */}
-            <button class="btn btn-primary btn-lg mt-3 botonAgregarTauro" 
-                    id="botonAgregarProductoDetalle" 
-                    data-id="" 
-                    data-nombre="" 
-                    data-precio="" 
-                    data-imagen="">
-                <i class="bi bi-cart-plus-fill"></i> Agregar al Carrito
-            </button>
+                <!-- Columna derecha: Texto y botón -->
+                <div class="col-md-6">
+                    <h1 id="product-name">Nombre del Producto</h1>
+                    <p id="product-description">Descripción detallada del producto...</p>
+
+                    <div id="product-options-section" class="mb-4" style="display:none;">
+                        <h4 class="product-options-title">Características y Opciones:</h4>
+                        <ul id="product-options-list" class="list-unstyled product-options-list"></ul>
+                    </div>
+
+                    <h3 class="product-price-display">Precio: <span id="product-price-detail">$0.00</span></h3>
+
+                    <button class="btn btn-primary btn-lg botonAgregarTauro w-100"
+                            id="botonAgregarProductoDetalle" 
+                            data-id="" 
+                            data-nombre="" 
+                            data-precio="" 
+                            data-imagen="">
+                        <i class="bi bi-cart-plus-fill me-2"></i>Agregar al Carrito
+                    </button>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
+    </main>
 
-    {/* Footer si lo tienes, similar a index.html */}
+
+    <!-- Footer (sin cambios) -->
     <footer class="text-center py-4 main-footer">
         <div class="container">
             <p>© 2024 Tauro Café. Todos los derechos reservados.</p>
+            <p>
+                <a href="#" class="text-decoration-none footer-link">Política de Privacidad</a> |
+                <a href="#" class="text-decoration-none footer-link">Términos de Servicio</a>
+            </p>
         </div>
     </footer>
 
-    {/* TOAST DE NOTIFICACIÓN (EXACTAMENTE EL MISMO que en index.html) */}
+    <!-- TOAST DE NOTIFICACIÓN (sin cambios) -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
         <div id="productoAgregadoTauroToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -132,105 +124,97 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  {/* SCRIPT INLINE ESPECÍFICO DE ESTA PÁGINA PARA CARGAR DETALLES DEL PRODUCTO */}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!-- SCRIPT INLINE ESPECÍFICO DE ESTA PÁGINA (sin cambios en la lógica, solo en cómo se muestran los elementos si no se encuentra producto) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Definir los datos de tus productos (puedes tenerlos aquí o cargarlos de otra forma)
-            //    ES CRUCIAL que los 'id' coincidan con los 'data-id' de los botones en index.html
-            //    y las 'imagen' tengan la ruta correcta desde la raíz (usando 'assets/img/').
             const todosLosProductos = {
-                // Granos
                 "grano-colombia": { nombre: "Café Tostado Colombia", precio: 1000, imagen: "assets/img/cafe_colombia_card.jpg", descripcion: "Perfil suave y equilibrado, con notas cítricas y achocolatadas.", opciones: ["Grano Entero 1kg", "Molido Fino 400g", "Molido Medio 400g"] },
                 "grano-etiopia": { nombre: "Café Tostado Etiopía", precio: 1200, imagen: "assets/img/cafe_etiopia_card.jpg", descripcion: "Notas florales y frutales distintivas. Cuna del café.", opciones: ["Grano Entero 1kg", "Molido Fino 400g"] },
                 "grano-salta": { nombre: "Café Tostado Salta", precio: 900, imagen: "assets/img/cafe_salta_card.jpg", descripcion: "Café de altura, cuerpo intenso y notas a frutos secos.", opciones: ["Grano Entero 1kg", "Molido Medio 1kg"] },
                 "grano-bolivia": { nombre: "Café Tostado Bolivia", precio: 950, imagen: "assets/img/cafe_bolivia_card.jpg", descripcion: "Dulzor pronunciado, acidez brillante y notas a caramelo.", opciones: ["Grano Entero 500g", "Molido Fino 500g"] },
                 "grano-brasil": { nombre: "Café Tostado Brasil", precio: 850, imagen: "assets/img/cafe_brasil_card.jpg", descripcion: "Cuerpo medio, baja acidez, notas a chocolate y nuez.", opciones: ["Grano Entero 1kg", "Molido Grueso 1kg"] },
-                // Cápsulas
                 "capsula-colombia-10": { nombre: "Cápsulas Café Colombia (x10)", precio: 1500, imagen: "assets/img/placeholder_capsula_colombia.jpg", descripcion: "El balance perfecto de Colombia en tu cafetera de cápsulas.", opciones: ["Compatibles Nespresso"] },
                 "capsula-etiopia-10": { nombre: "Cápsulas Café Etiopía (x10)", precio: 1700, imagen: "assets/img/placeholder_capsula_etiopia.jpg", descripcion: "Notas florales y frutales ahora en formato cápsula.", opciones: ["Compatibles Nespresso"] },
                 "capsula-salta-10": { nombre: "Cápsulas Café Salta (x10)", precio: 1400, imagen: "assets/img/placeholder_capsula_salta.jpg", descripcion: "La intensidad de Salta en la comodidad de una cápsula.", opciones: ["Compatibles Nespresso"] },
-                // Cafeteras
                 "cafetera-barista": { nombre: "Cafetera Barista Profesional", precio: 50000, imagen: "assets/img/cafetera_barista_card.jpg", descripcion: "Para los amantes del espresso perfecto y el arte latte.", opciones: ["Garantía 1 año", "Color: Acero"] },
                 "cafetera-nespresso": { nombre: "Cafetera Símil Nespresso", precio: 25000, imagen: "assets/img/cafetera_nespresso_card.jpg", descripcion: "Diseño compacto y elegante para disfrutar nuestras cápsulas.", opciones: ["Garantía 1 año", "Color: Negro"] },
                 "cafetera-filtro": { nombre: "Cafetera Eléctrica de Filtro", precio: 15000, imagen: "assets/img/cafetera_filtro_card.jpg", descripcion: "Ideal para preparar varias tazas a la vez. Sabor clásico.", opciones: ["Garantía 1 año", "Capacidad: 1.2L"] },
-                // Accesorios
                 "accesorio-filtros-30": { nombre: "Filtros Especiales (30 unidades)", precio: 500, imagen: "assets/img/placeholder_filtros.jpg", descripcion: "Filtros de papel de alta calidad para tu cafetera eléctrica.", opciones: ["Material: Papel Ecológico", "Tamaño: Nº4"] }
             };
 
-            // 2. Obtener el ID del producto de la URL
             const params = new URLSearchParams(window.location.search);
-            // Unificar cómo obtenemos el ID. Puede ser 'id' o una combinación de 'tipo' y 'origen'/'modelo'
-            let productoId = params.get('id'); // Intentar obtener un 'id' directo primero
+            let productoId = params.get('id');
             
-            if (!productoId) { // Si no hay 'id', construirlo como en index.html
+            if (!productoId) {
                 const tipo = params.get('tipo');
                 const origen = params.get('origen');
                 const modelo = params.get('modelo');
                 const item = params.get('item');
 
                 if (tipo === 'grano') productoId = `grano-${origen}`;
-                else if (tipo === 'capsula') productoId = `capsula-${origen}-10`; // Asumiendo que siempre es pack de 10 aquí
+                else if (tipo === 'capsula') productoId = `capsula-${origen}-10`;
                 else if (tipo === 'cafetera') productoId = `cafetera-${modelo}`;
                 else if (tipo === 'accesorio' && item === 'filtros') productoId = `accesorio-filtros-30`;
             }
 
-            // 3. Encontrar los datos del producto
             const productoActual = todosLosProductos[productoId];
 
-            // 4. Elementos del DOM para actualizar
             const elNombre = document.getElementById('product-name');
             const elDescripcion = document.getElementById('product-description');
             const elImagen = document.getElementById('product-image');
-            const elPrecio = document.getElementById('product-price-detail');
+            const elPrecioSpan = document.getElementById('product-price-detail');
             const elBreadcrumb = document.getElementById('breadcrumb-product-name');
             const elBotonAgregar = document.getElementById('botonAgregarProductoDetalle');
             const elSeccionOpciones = document.getElementById('product-options-section');
             const elListaOpciones = document.getElementById('product-options-list');
 
             if (productoActual && elBotonAgregar) {
-                // Actualizar contenido de la página
                 if(elNombre) elNombre.textContent = productoActual.nombre;
                 if(elDescripcion) elDescripcion.textContent = productoActual.descripcion;
                 if(elImagen) {
-                    elImagen.src = productoActual.imagen; // La ruta ya debe estar bien en el objeto
+                    elImagen.src = productoActual.imagen;
                     elImagen.alt = productoActual.nombre;
                 }
-                if(elPrecio) elPrecio.textContent = `$${productoActual.precio.toFixed(2)}`;
+                if(elPrecioSpan) elPrecioSpan.textContent = `$${parseFloat(productoActual.precio).toFixed(2)}`;
                 if(elBreadcrumb) elBreadcrumb.textContent = productoActual.nombre;
                 document.title = `${productoActual.nombre} - Tauro Café`;
 
-                // Configurar los DATA-ATTRIBUTES del botón "Agregar al Carrito"
                 elBotonAgregar.setAttribute('data-id', productoId);
                 elBotonAgregar.setAttribute('data-nombre', productoActual.nombre);
                 elBotonAgregar.setAttribute('data-precio', productoActual.precio);
-                elBotonAgregar.setAttribute('data-imagen', productoActual.imagen); // Usa la ruta correcta
+                elBotonAgregar.setAttribute('data-imagen', productoActual.imagen);
 
-                // Mostrar opciones si existen
                 if (productoActual.opciones && productoActual.opciones.length > 0 && elListaOpciones && elSeccionOpciones) {
-                    elListaOpciones.innerHTML = ''; // Limpiar
+                    elListaOpciones.innerHTML = '';
                     productoActual.opciones.forEach(opt => {
                         const li = document.createElement('li');
-                        li.textContent = opt;
+                        // li.classList.add('mb-1'); // Opcional si quieres más espacio entre opciones
+                        li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${opt}`; // Espacio después del ícono
                         elListaOpciones.appendChild(li);
                     });
                     elSeccionOpciones.style.display = 'block';
                 } else if (elSeccionOpciones) {
                     elSeccionOpciones.style.display = 'none';
                 }
-
             } else {
-                // Producto no encontrado o botón no existe
-                if(elNombre) elNombre.textContent = "Producto no encontrado";
-                if(elDescripcion) elDescripcion.textContent = "Lo sentimos, no pudimos encontrar los detalles de este producto.";
-                console.error("Producto no encontrado con ID:", productoId, " o botón de agregar no existe.");
+                // Mantener la estructura visible pero con mensaje de error si el producto no existe
+                if(elNombre) elNombre.textContent = "Producto no disponible";
+                if(elDescripcion) elDescripcion.textContent = "Los detalles de este producto no están disponibles actualmente.";
+                if(elImagen) elImagen.style.display = 'none'; // Ocultar imagen si no hay
+                if(elPrecioSpan) elPrecioSpan.closest('h3').style.display = 'none'; // Ocultar precio
+                if(elBotonAgregar) elBotonAgregar.style.display = 'none'; // Ocultar botón
+                if(elSeccionOpciones) elSeccionOpciones.style.display = 'none'; // Ocultar opciones
+                console.error("Producto no encontrado con ID:", productoId, "o elementos del DOM faltantes.");
             }
         });
     </script>
 
-    {/* ENLAZAR A carrito.js DESPUÉS del script inline para asegurar que los botones estén listos */}
-    <script src="carrito.js"></script> {/* RUTA DIRECTA */}
+    <script src="carrito.js"></script>
+    <script src="script.js"></script>
 
+
+    
 </body>
 </html>

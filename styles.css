@@ -218,3 +218,227 @@ body {
     border-radius: 8px;
     margin-bottom: 1.5rem;
 }
+
+/* styles.css (al final o en una sección relevante) */
+
+.map-image {
+    max-width: 800px; /* O el ancho que prefieras */
+    display: block; /* Para centrar con margin auto si es necesario */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid var(--cafe-brown-light); /* Borde sutil */
+}
+
+/* --- Navbar Principal --- */
+/* ... (tus estilos existentes de navbar y :root) ... */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    padding-top: var(--navbar-height)!important;/* MUY IMPORTANTE: Espacio para la navbar fija */
+    background-color: var(--cafe-cream);
+    line-height: 1.6;
+}
+
+/* ... (otros estilos existentes) ... */
+
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN DE PORTADA (HERO) --- */
+/* ... (tus estilos de hero existentes) ... */
+
+.product-detail-img { /* Esta ya existía, la dejo para asegurar que esté completa */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    /* Puedes añadir un borde si lo deseas, como en la imagen de sucursales */
+    /* border: 1px solid var(--cafe-brown-light); */
+}
+
+/* --- Estilos para la Página de Detalle de Producto (y potencialmente otras páginas de contenido) --- */
+.page-container, /* Usaremos esta clase también para el contenedor de detalle de producto */
+.product-detail-container { 
+    background-color: #fff; 
+    padding: 2.5rem; /* Un poco más de padding */
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra un poco más pronunciada */
+    margin-top: 1rem; /* Reducir el margen superior aquí, ya que el contenedor principal tendrá padding-top */
+    margin-bottom: 3rem;
+}
+
+.breadcrumb-item a { 
+    color: var(--primary-accent); 
+    text-decoration: none; 
+    font-weight: 500;
+}
+.breadcrumb-item a:hover { 
+    text-decoration: underline; 
+    color: var(--cafe-brown-medium);
+}
+.breadcrumb-item.active {
+    color: var(--text-muted-cafe);
+}
+
+/* Estilo para los títulos de sección/página */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--cafe-brown-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+
+:root {
+    --cafe-brown-dark: #4a3b31;
+    --cafe-brown-medium: #7B5E4D;
+    --cafe-brown-light: #A08A7A;
+    --cafe-beige: #D2B48C;
+    --cafe-cream: #F5F5DC;
+    --primary-accent: #c7a17a;
+    --text-dark: #3a2e27; /* Color de texto principal oscuro */
+    --text-light: #f8f9fa;
+    --text-muted-cafe: #6c5e53; /* Para texto secundario o menos importante */
+    --navbar-height: 100px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark); /* Color de texto por defecto */
+    padding-top: var(--navbar-height)!important;
+    background-color: var(--cafe-cream);
+    line-height: 1.6;
+}
+
+/* Contenedor principal para páginas de detalle o contenido */
+.product-detail-container,
+.page-container { /* Si usas .page-container en otras páginas como sucursales */
+    background-color: #fff; /* Fondo blanco para el card de detalle */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 1rem; /* Ajustado para el container principal */
+    margin-bottom: 3rem;
+}
+
+.product-detail-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px; /* Un poco menos de redondeo para la imagen del producto */
+    /* margin-bottom: 1.5rem; /* No es necesario si está en su propia columna */
+}
+
+/* Títulos de sección y producto */
+.section-title,
+#product-name { /* Aplicar directamente al h1 del producto */
+    font-family: 'Playfair Display', serif;
+    color: var(--text-dark); /* Título principal oscuro */
+    font-weight: 700;
+    margin-bottom: 0.5rem; /* Menos margen si el subtítulo va justo debajo */
+}
+
+/* Descripción del producto / Subtítulo */
+#product-description {
+    font-size: 1.1rem; /* Tamaño de la descripción como en la imagen */
+    color: var(--text-muted-cafe); /* Un color más suave para la descripción */
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Título para "Características y Opciones" */
+.product-options-title {
+    font-family: 'Roboto', sans-serif; /* O Playfair si prefieres */
+    font-weight: 700; /* O 500 si quieres menos énfasis */
+    color: var(--text-dark);
+    font-size: 1.2rem; /* Tamaño como en la imagen */
+    margin-bottom: 0.75rem;
+}
+
+/* Lista de opciones */
+.product-options-list li {
+    color: var(--text-muted-cafe); /* Color de las opciones */
+    margin-bottom: 0.3rem;
+    font-size: 1rem; /* Tamaño de texto de las opciones */
+}
+.product-options-list li i {
+    color: var(--primary-accent); /* Icono de check con color de acento */
+    margin-right: 0.5rem;
+}
+
+
+/* Precio */
+.product-price-display { /* Nueva clase para el H3 que contiene el precio */
+    color: var(--text-dark);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; /* O 500 */
+    font-size: 1.5rem; /* Tamaño del precio */
+    margin-bottom: 1.5rem;
+}
+.product-price-display span { /* El span que contiene el valor numérico del precio */
+    color: var(--text-dark); /* O var(--primary-accent) si quieres el precio con el color de acento */
+}
+
+
+/* Botón Primario (Agregar al carrito) */
+.btn-primary {
+    background-color: var(--primary-accent) !important; /* Forzar color de fondo */
+    border-color: var(--primary-accent) !important; /* Forzar color de borde */
+    color: var(--cafe-brown-dark) !important; /* Texto oscuro sobre el acento */
+    font-weight: 500;
+    padding: 0.75rem 1.5rem; /* Padding del botón */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    text-transform: none; /* Sin mayúsculas si así está en la imagen */
+}
+
+.btn-primary:hover {
+    background-color: #b08d67 !important; /* Un tono más oscuro de primary-accent para hover */
+    border-color: #b08d67 !important;
+    color: var(--cafe-brown-dark) !important;
+}
+
+/* Breadcrumbs */
+.breadcrumb-item a {
+    color: var(--primary-accent);
+    text-decoration: none;
+}
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+.breadcrumb-item.active {
+    color: var(--text-muted-cafe);
+}
+.product-detail-container .product-detail-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-container h1,
+.product-detail-container p,
+.product-detail-container h3,
+.product-detail-container button {
+    margin-bottom: 1rem;
+}
+
+.product-detail-container .product-options-title {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.product-detail-container ul.product-options-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.product-detail-container ul.product-options-list li i {
+    color: var(--primary-accent);
+    margin-right: 0.5rem;
+}
+
+.product-detail-img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
