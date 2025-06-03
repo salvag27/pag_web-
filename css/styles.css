@@ -1,208 +1,165 @@
-::root {
+:root {
     --cafe-brown-dark: #4a3b31;
     --cafe-brown-medium: #7B5E4D;
     --cafe-brown-light: #A08A7A;
     --cafe-beige: #D2B48C;
     --cafe-cream: #F5F5DC;
-    --primary-accent: #c7a17a;
+    --primary-accent: #c7a17a; /* Un dorado/beige más cálido */
     --text-dark: #3a2e27;
     --text-light: #f8f9fa;
     --text-muted-cafe: #6c5e53;
     --cafe-brown-dark-rgb: 74,59,49;
+    --navbar-height: 70px; /* Nueva variable para la altura de la navbar */
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-dark);
-    padding-top: 115px;
+    padding-top: var(--navbar-height); /* Ajuste para la navbar fija unificada */
     background-color: var(--cafe-cream);
     line-height: 1.6;
 }
 
-.pre-navbar {
-    background-color: var(--cafe-brown-medium);
-    padding: 0.3rem 1rem;
-    color: var(--cafe-cream);
-    font-size: 0.85rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1031;
-    border-bottom: 1px solid var(--cafe-brown-dark);
-}
-.pre-navbar .container-fluid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.pre-navbar-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--cafe-beige);
-    text-decoration: none;
-}
-.pre-navbar-logo:hover {
-    color: var(--primary-accent);
-}
-.pre-navbar .nav-link {
-    color: var(--cafe-beige);
-    padding: 0.2rem 0.5rem;
-    font-size: 0.9rem;
-}
-.pre-navbar .nav-link:hover {
-    color: var(--primary-accent);
-}
-.pre-navbar .dropdown-menu {
-    background-color: var(--cafe-brown-medium);
-    border: 1px solid var(--cafe-brown-dark);
-}
-.pre-navbar .dropdown-item {
-    color: var(--cafe-beige);
-    font-size: 0.9rem;
-}
-.pre-navbar .dropdown-item:hover {
-    background-color: var(--cafe-brown-dark);
-    color: var(--primary-accent);
+/* --- Navbar Unificada --- */
+.navbar-custom {
+    background-color: var(--cafe-brown-dark) !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    min-height: var(--navbar-height);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
-.navbar {
-    background-color: var(--cafe-brown-dark) !important;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
-    position: fixed;
-    top: 45px;
-    left: 0;
-    right: 0;
-    z-index: 1030;
-}
-.navbar-brand {
+.navbar-custom .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem; /* Ligeramente más pequeño para más espacio */
     color: var(--cafe-beige) !important;
     transition: color 0.3s ease;
+    padding-left: 1rem; /* Un poco de padding */
 }
-.navbar-brand:hover {
+.navbar-custom .navbar-brand:hover {
     color: var(--primary-accent) !important;
 }
-.navbar .nav-link {
+
+.navbar-custom .nav-link {
     color: var(--cafe-beige) !important;
     font-weight: 400;
-    font-size: 1rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    font-size: 0.95rem; /* Ajuste de tamaño */
+    margin-left: 0.8rem; /* Más espacio entre links */
+    margin-right: 0.8rem;
     transition: color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase; /* Opcional: para un look más definido */
+    letter-spacing: 0.5px;
 }
-.navbar .nav-link:hover {
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
     color: var(--primary-accent) !important;
-    transform: translateY(-2px);
+    /* transform: translateY(-1px); */ /* Sutil hover */
 }
-.navbar .nav-link.active {
-    color: var(--primary-accent) !important;
-    font-weight: 700;
+.navbar-custom .nav-link.active {
+    font-weight: 500; /* Un poco más de peso para el activo */
 }
 
-/* --- CAROUSEL DESDE CERO MODIFICADO --- */
+.navbar-custom .navbar-toggler {
+    border-color: rgba(210, 180, 140, 0.5); /* color beige con transparencia */
+}
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(210, 180, 140, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-custom .dropdown-menu {
+    background-color: var(--cafe-brown-dark);
+    border: 1px solid var(--cafe-brown-medium);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.navbar-custom .dropdown-item {
+    color: var(--cafe-beige);
+    font-size: 0.9rem;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+    background-color: var(--cafe-brown-medium);
+    color: var(--primary-accent);
+}
+
+/* Dropdown de Sucursales Personalizado */
+.dropdown-menu-sucursales {
+    min-width: 280px; /* Ancho del dropdown de sucursales */
+    background-color: var(--cafe-brown-dark); /* Fondo oscuro */
+    color: var(--cafe-beige); /* Texto claro */
+}
+.dropdown-menu-sucursales h5 {
+    color: var(--primary-accent);
+    font-family: 'Playfair Display', serif;
+}
+.dropdown-menu-sucursales img {
+    border: 2px solid var(--cafe-brown-medium);
+}
+.dropdown-menu-sucursales p {
+    color: var(--cafe-beige);
+}
+
+/* Icono del Carrito y Contador */
+.navbar-custom .nav-link .bi-cart-fill {
+    color: var(--cafe-beige);
+    transition: color 0.3s ease;
+}
+.navbar-custom .nav-link:hover .bi-cart-fill {
+    color: var(--primary-accent);
+}
+.cart-item-count {
+    font-size: 0.65rem;
+    padding: 0.2em 0.4em;
+    background-color: var(--primary-accent) !important; /* Color destacado */
+    color: var(--cafe-brown-dark) !important;
+    font-weight: bold;
+}
+
+/* --- CAROUSEL (Estilos existentes, revisados para compatibilidad) --- */
 .main-carousel {
-    position: relative;
     width: 100%;
-    height: 180px; /* Ajustá esto a donde quieras que termine la línea azul */
+    /* height: 5px; Esto parece un error, lo comento. El alto se define por las imágenes */
     overflow: hidden;
+    /* margin-top: var(--navbar-height); No necesario si body tiene padding-top */
 }
-
-.main-carousel .carousel-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.main-carousel .carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-}
-
-.main-carousel .carousel-item.active {
-    opacity: 1;
-    z-index: 2;
-}
-
 .main-carousel .carousel-item img {
-    width: 100%;
-    height: 100%;
+    /* Ajustar altura del carrusel. Ej: 60vh o un valor fijo px */
+    min-height: 400px; /* Mínimo para que se vea bien */
+    max-height: 75vh; /* Máximo para no ocupar toda la pantalla */
     object-fit: cover;
     filter: brightness(0.6);
 }
-
 .main-carousel .carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.5rem 5%;
-    background: linear-gradient(to top, rgba(var(--cafe-brown-dark-rgb), 0.8), rgba(var(--cafe-brown-dark-rgb), 0));
-    color: var(--text-light);
-    text-align: center;
-    z-index: 10;
-    font-size: 0.75rem;
+    background: linear-gradient(to top, rgba(var(--cafe-brown-dark-rgb), 0.85), rgba(var(--cafe-brown-dark-rgb), 0));
+    padding: 1.5rem 5%; /* Más padding */
 }
-
 .main-carousel .carousel-title-main {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-    margin-bottom: 0.25rem;
-}
-
-.main-carousel .carousel-caption p {
-    font-size: 0.7rem;
+    font-size: 2rem; /* Más grande para impacto */
     margin-bottom: 0.5rem;
-    font-weight: 300;
 }
-
+.main-carousel .carousel-caption p {
+    font-size: 1rem; /* Más legible */
+    margin-bottom: 1rem;
+}
 .main-carousel .carousel-cta-button {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
 }
-
-.carousel-indicators {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 15;
-    margin-left: 0;
-}
-
 .carousel-indicators [data-bs-target] {
     background-color: var(--primary-accent);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin: 0 3px;
+    width: 10px; /* Un poco más grandes */
+    height: 10px;
 }
-/* --- FIN CAROUSEL --- */
 
-
+/* --- SECCIONES Y PRODUCTOS (Estilos existentes, revisados) --- */
 .section-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: var(--cafe-brown-dark);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Más espacio */
     position: relative;
-    padding-bottom: 0.75rem;
-    font-size: 2.5rem;
+    padding-bottom: 1rem; /* Más espacio para la línea */
+    font-size: 2.2rem; /* Ajuste de tamaño */
 }
 .section-title::after {
     content: '';
@@ -210,8 +167,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    width: 100px;
-    height: 4px;
+    width: 80px; /* Más corta pero gruesa */
+    height: 3px;
     background-color: var(--primary-accent);
     border-radius: 2px;
 }
@@ -221,80 +178,99 @@ body {
 }
 .sub-section-description {
     color: var(--text-muted-cafe);
-    font-size: 1.1rem;
+    font-size: 1.05rem; /* Ajuste */
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem; /* Espacio antes de las cards */
 }
 
 .product-card {
-    border: none;
-    border-radius: 12px;
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 8px; /* Menos redondeado */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: #fff;
-    box-shadow: 0 5px 15px rgba(var(--cafe-brown-dark-rgb), 0.08);
+    box-shadow: 0 4px 10px rgba(var(--cafe-brown-dark-rgb), 0.07);
 }
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(var(--cafe-brown-dark-rgb), 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(var(--cafe-brown-dark-rgb), 0.12);
 }
 .product-card .card-img-top {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    max-height: 220px;
+    border-top-left-radius: 7px; /* Coincidir con card */
+    border-top-right-radius: 7px;
+    max-height: 200px; /* Ligeramente más bajo */
     object-fit: cover;
 }
 .product-card .card-body {
-    color: var(--text-dark);
-    padding: 1.5rem;
+    padding: 1.25rem;
 }
 .product-card .card-title {
     font-family: 'Playfair Display', serif;
     color: var(--cafe-brown-dark);
     font-weight: 700;
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
 }
 .product-card .card-text {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-muted-cafe);
-    min-height: 4.5em;
-    line-height: 1.5;
+    min-height: 3.8em; /* Ajustar si es necesario */
+}
+.product-card .product-price-display {
+    font-size: 1.1rem;
+    color: var(--primary-accent);
+    font-weight: bold;
+    margin-top: 0.5rem;
 }
 .product-card .card-footer {
-    background-color: transparent;
-    border-top: 1px solid #eee;
-    text-align: center;
-    padding: 1rem 1.5rem;
+    background-color: #f9f9f9; /* Fondo sutil para el footer */
+    border-top: 1px solid #e0e0e0;
+    padding: 0.75rem 1.25rem;
+}
+.product-card .btn-sm {
+    font-size: 0.8rem; /* Botones más pequeños */
+    padding: 0.4rem 0.8rem;
 }
 
+/* --- BOTONES (Estilos existentes, revisados) --- */
 .btn-primary {
     background-color: var(--primary-accent);
     border-color: var(--primary-accent);
     color: var(--cafe-brown-dark);
     font-weight: 500;
     padding: 0.6rem 1.5rem;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .btn-primary:hover {
-    background-color: var(--cafe-brown-medium);
-    border-color: var(--cafe-brown-medium);
-    color: var(--text-light);
+    background-color: #b08d67; /* Un poco más oscuro que primary-accent */
+    border-color: #b08d67;
+    color: var(--cafe-brown-dark);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
-.btn-outline-primary {
-    color: var(--cafe-brown-medium);
-    border-color: var(--cafe-brown-medium);
+.btn-outline-primary { /* Este no se usó mucho, pero lo actualizo */
+    color: var(--primary-accent);
+    border-color: var(--primary-accent);
     font-weight: 500;
     padding: 0.5rem 1.2rem;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 .btn-outline-primary:hover {
+    background-color: var(--primary-accent);
+    color: var(--cafe-brown-dark);
+}
+.btn-outline-secondary { /* Estilo para "Ver detalles" */
+    color: var(--cafe-brown-medium);
+    border-color: var(--cafe-brown-medium);
+}
+.btn-outline-secondary:hover {
     background-color: var(--cafe-brown-medium);
     color: var(--text-light);
-    transform: translateY(-2px);
 }
 
+
+/* --- FONDOS Y SECCIONES ESPECIALES (Estilos existentes) --- */
 .bg-light-brown {
     background-color: var(--cafe-beige);
     padding-top: 4rem;
@@ -331,6 +307,7 @@ body {
     color: var(--cafe-brown-dark);
 }
 
+/* --- FOOTER (Estilos existentes) --- */
 .main-footer {
     background-color: var(--cafe-brown-dark);
     color: var(--cafe-beige);
@@ -346,21 +323,171 @@ body {
     text-decoration: underline !important;
 }
 
+/* --- TOAST (Estilos existentes, revisados) --- */
 .toast {
     background-color: var(--cafe-brown-dark);
     color: var(--text-light);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 6px; /* Menos redondeado */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
 }
 .toast-header {
     background-color: var(--cafe-brown-medium);
     color: var(--text-light);
     border-bottom: 1px solid var(--cafe-brown-light);
 }
-.btn-close {
+.toast-header .btn-close {
     filter: invert(1) grayscale(100%) brightness(200%);
 }
+.toast-body {
+    font-size: 0.95rem;
+}
 
-.main-carousel .carousel-item {
-    display: block !important; /* siempre bloque para ocupar espacio */
+/* --- Estilos para el Offcanvas del Carrito --- */
+.offcanvas-header {
+    background-color: var(--cafe-brown-dark);
+    color: var(--cafe-beige);
+}
+.offcanvas-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+.offcanvas-title {
+    font-family: 'Playfair Display', serif;
+}
+.offcanvas-body {
+    background-color: var(--cafe-cream);
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--cafe-brown-light);
+}
+.cart-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.cart-item-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 1rem;
+    border: 1px solid var(--cafe-brown-light);
+}
+.cart-item-details {
+    flex-grow: 1;
+}
+.cart-item-details h6 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    color: var(--cafe-brown-dark);
+}
+.cart-item-details p {
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--text-muted-cafe);
+}
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+.cart-item-quantity .btn-quantity {
+    background-color: var(--cafe-brown-light);
+    color: var(--cafe-brown-dark);
+    border: none;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1;
+}
+.cart-item-quantity .btn-quantity:hover {
+    background-color: var(--cafe-brown-medium);
+    color: var(--text-light);
+}
+.cart-item-quantity .quantity-display {
+    margin: 0 0.75rem;
+    min-width: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+.cart-item-actions .btn-remove-item {
+    color: var(--cafe-brown-medium);
+    background: none;
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+.cart-item-actions .btn-remove-item:hover {
+    color: #dc3545; /* Bootstrap danger color */
+}
+.empty-cart-message {
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+#cart-total-price {
+    color: var(--primary-accent);
+    font-weight: bold;
+}
+#checkout-button:disabled {
+    background-color: var(--cafe-brown-light);
+    border-color: var(--cafe-brown-light);
+    cursor: not-allowed;
+}
+
+/* Placeholder para la foto de sucursal */
+#foto-sucursal-placeholder, #foto-sucursal-placeholder-detail {
+    width: 100%;
+    height: 150px; /* Ajusta según necesidad */
+    object-fit: cover;
+    background-color: var(--cafe-brown-light); /* Color de fondo mientras no hay imagen */
+}
+
+/* En tu style.css para Tauro Café */
+
+/* ... (TUS ESTILOS EXISTENTES PARA NAVBAR, PRODUCT-CARDS, ETC. DE TAURO CAFÉ) ... */
+
+/* Estilos para el Offcanvas del Carrito de Tauro Café */
+#carritoOffcanvasTauro .offcanvas-header {
+    background-color: var(--cafe-brown-dark); /* Usando tus variables CSS de Tauro */
+    color: var(--cafe-beige);
+}
+#carritoOffcanvasTauro .offcanvas-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Para que la 'X' sea visible */
+}
+#carritoOffcanvasTauro .offcanvas-body {
+    background-color: var(--cafe-cream); /* Un fondo claro para el cuerpo del carrito */
+}
+
+/* Estilo para cada producto dentro del offcanvas del carrito */
+.producto-en-carrito h6 {
+    font-family: 'Playfair Display', serif; /* Coherencia con tus títulos */
+    color: var(--text-dark);
+    font-size: 1rem; /* Ajusta según necesites */
+}
+.producto-en-carrito .small {
+    font-size: 0.85rem;
+}
+.producto-en-carrito .btn-sm {
+    font-size: 0.8rem; /* Para que los botones +/- no sean muy grandes */
+}
+
+/* Estilo para el Toast de "Producto Agregado" */
+#productoAgregadoTauroToast .toast-header {
+    background-color: var(--cafe-brown-medium); /* Coherencia de colores */
+    color: var(--text-light);
+}
+#productoAgregadoTauroToast .toast-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+#productoAgregadoTauroToast .toast-body {
+    background-color: var(--cafe-brown-dark);
+    color: var(--text-light);
+    font-size: 0.9rem;
 }

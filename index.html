@@ -5,64 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tauro Café - Granos y Accesorios Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    
-    <div class="pre-navbar">
-        <div class="container-fluid">
-            <a href="index.html" class="pre-navbar-logo">
-                
-                Tauro Café Logo
-            </a>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#contacto">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sucursales</a> 
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProductos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProductos">
-                        <li><a class="dropdown-item" href="#granos">Café en Grano y Molido</a></li>
-                        <li><a class="dropdown-item" href="#capsulas">Cápsulas de Café</a></li>
-                        <li><a class="dropdown-item" href="#cafeteras">Cafeteras</a></li>
-                        <li><a class="dropdown-item" href="#accesorios">Accesorios</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
 
-    <!-- Navbar Principal -->
-    <nav class="navbar navbar-expand-lg navbar-dark"> 
-        <div class="container">
+    <!-- Navbar Unificada de Tauro Café -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Tauro Café</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavPrincipal" aria-controls="navbarNavPrincipal" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    
-                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#granos">Café en Grano</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#capsulas">Cápsulas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cafeteras">Cafeteras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#accesorios">Accesorios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li> 
+            <div class="collapse navbar-collapse" id="navbarNavPrincipal">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProductosMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProductosMenu">
+                            <li><a class="dropdown-item" href="#granos">Café en Grano y Molido</a></li>
+                            <li><a class="dropdown-item" href="#capsulas">Cápsulas de Café</a></li>
+                            <li><a class="dropdown-item" href="#cafeteras">Cafeteras</a></li>
+                            <li><a class="dropdown-item" href="#accesorios">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="sucursalesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sucursales
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-sucursales dropdown-menu-end p-3" aria-labelledby="sucursalesDropdown">
+                            <h5 class="text-center mb-3">Conoce nuestras sucursales</h5>
+                            <img src="assets/img/placeholder_sucursal.jpg" alt="Foto Sucursal" class="img-fluid rounded mb-2" id="foto-sucursal-placeholder">
+                            <p class="text-center small">Próximamente más información.</p>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item">
+                        <!-- BOTÓN DEL CARRITO: apunta al nuevo offcanvas "carritoOffcanvasTauro" -->
+                        <a class="nav-link position-relative" href="#" id="botonAbrirCarritoTauro" role="button" data-bs-toggle="offcanvas" data-bs-target="#carritoOffcanvasTauro" aria-controls="carritoOffcanvasTauro">
+                            <i class="bi bi-cart-fill fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger contador-carrito-display">
+                                0
+                                <span class="visually-hidden">items in cart</span>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="inicio"> 
+    <!-- OFFCANVAS DEL CARRITO (estructura de tu ejemplo "Riche") -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="carritoOffcanvasTauro"  aria-labelledby="carritoOffcanvasTauroLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="carritoOffcanvasTauroLabel">Tu Carrito - Tauro Café</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- El contenido del carrito (lista de productos, total, botones) se insertará aquí por JavaScript -->
+            <div id="listaCarritoTauro">
+                <p class="text-center text-muted p-3">Tu carrito está vacío.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header con Carousel (sin cambios relevantes aquí) -->
+    <header id="inicio">
         <div id="mainCarousel" class="carousel slide main-carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -71,30 +84,29 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assets/img/carousel_granos.jpg" class="d-block w-100" alt="Café en Grano Seleccionado Tauro Café">
+                    <img src="assets/img/carousel_granos.jpg" class="d-block w-100" alt="Café en Grano">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="carousel-title-main">Nuestros Granos Seleccionados</h5>
-                        <p>Descubre la pureza y el aroma de cafés de las mejores regiones del mundo, listos para moler y disfrutar.</p>
-                        <a href="#granos" class="btn btn-primary btn-lg carousel-cta-button">Explora Nuestros Granos</a>
+                        <p>Pureza y aroma de las mejores regiones.</p>
+                        <a href="#granos" class="btn btn-primary btn-lg carousel-cta-button">Explora Granos</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img/carousel_capsulas.png" class="d-block w-100" alt="Cápsulas de Café Premium Tauro Café">
+                    <img src="assets/img/carousel_capsulas.png" class="d-block w-100" alt="Cápsulas de Café">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5 class="carousel-title-main">Cápsulas: Sabor Intenso, Máxima Comodidad</h5>
-                        <p>La misma calidad de nuestros granos, ahora en prácticas cápsulas compatibles para tu día a día.</p>
-                        <a href="#capsulas" class="btn btn-primary btn-lg carousel-cta-button">Descubre Nuestras Cápsulas</a>
+                        <h5 class="carousel-title-main">Cápsulas: Sabor Intenso</h5>
+                        <p>Calidad y comodidad en cada cápsula.</p>
+                        <a href="#capsulas" class="btn btn-primary btn-lg carousel-cta-button">Descubre Cápsulas</a>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/img/carousel_cafeteras.jpg" class="d-block w-100" alt="Cafeteras Modernas Tauro Café">
+                    <img src="assets/img/carousel_cafeteras.jpg" class="d-block w-100" alt="Cafeteras">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="carousel-title-main">Cafeteras para Cada Ritual</h5>
-                        <p>Desde máquinas profesionales hasta opciones para el hogar, encuentra la cafetera perfecta para ti.</p>
-                        <a href="#cafeteras" class="btn btn-primary btn-lg carousel-cta-button">Conoce Nuestras Cafeteras</a>
+                        <p>Encuentra la máquina perfecta para ti.</p>
+                        <a href="#cafeteras" class="btn btn-primary btn-lg carousel-cta-button">Conoce Cafeteras</a>
                     </div>
                 </div>
-                
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -108,67 +120,109 @@
     </header>
 
     <main class="container mt-5">
-        
         <section id="granos" class="py-5">
             <h2 class="text-center mb-4 section-title">Café en Grano y Molido</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- Producto Ejemplo con DATA ATTRIBUTES -->
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="assets/img/cafe_colombia_card.jpg" class="card-img-top" alt="Café Tostado Colombia">
+                        <img src="assets/img/cafe_colombia_card.jpg" class="card-img-top product-image-source" alt="Café Tostado Colombia">
                         <div class="card-body">
-                            <h5 class="card-title">Café Tostado Colombia</h5>
-                            <p class="card-text">Perfil suave y equilibrado, con notas cítricas y achocolatadas.</p>
+                            <h5 class="card-title product-name-source">Café Tostado Colombia</h5>
+                            <p class="card-text">Perfil suave y equilibrado.</p>
+                            <p class="card-text fw-bold product-price-source">$1000.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=grano&origen=colombia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=grano&origen=colombia" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                            <!-- BOTÓN AGREGAR TAURO: clase "botonAgregarTauro" y data-attributes -->
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="grano-colombia" 
+                                    data-nombre="Café Tostado Colombia" 
+                                    data-precio="1000" 
+                                    data-imagen="assets/img/cafe_colombia_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="assets/img/cafe_etiopia_card.jpg" class="card-img-top" alt="Café Tostado Etiopía">
+                        <img src="assets/img/cafe_etiopia_card.jpg" class="card-img-top product-image-source" alt="Café Tostado Etiopía">
                         <div class="card-body">
-                            <h5 class="card-title">Café Tostado Etiopía</h5>
-                            <p class="card-text">Notas florales y frutales distintivas. Cuna del café.</p>
+                            <h5 class="card-title product-name-source">Café Tostado Etiopía</h5>
+                            <p class="card-text">Notas florales y frutales.</p>
+                            <p class="card-text fw-bold product-price-source">$1200.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=grano&origen=etiopia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=grano&origen=etiopia" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="grano-etiopia" 
+                                    data-nombre="Café Tostado Etiopía" 
+                                    data-precio="1200" 
+                                    data-imagen="assets/img/cafe_etiopia_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repite esta estructura para los demás productos de granos -->
+                <div class="col">
+                    <div class="card h-100 product-card">
+                        <img src="assets/img/cafe_salta_card.jpg" class="card-img-top product-image-source" alt="Café Tostado Salta">
+                        <div class="card-body">
+                            <h5 class="card-title product-name-source">Café Tostado Salta</h5>
+                            <p class="card-text">Café de altura, cuerpo intenso.</p>
+                            <p class="card-text fw-bold product-price-source">$900.00</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=grano&origen=salta" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="grano-salta" 
+                                    data-nombre="Café Tostado Salta" 
+                                    data-precio="900" 
+                                    data-imagen="assets/img/cafe_salta_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="assets/img/cafe_salta_card.jpg" class="card-img-top" alt="Café Tostado Salta">
+                        <img src="assets/img/cafe_bolivia_card.jpg" class="card-img-top product-image-source" alt="Café Tostado Bolivia">
                         <div class="card-body">
-                            <h5 class="card-title">Café Tostado Salta</h5>
-                            <p class="card-text">Café de altura, cuerpo intenso y notas a frutos secos.</p>
+                            <h5 class="card-title product-name-source">Café Tostado Bolivia</h5>
+                            <p class="card-text">Dulzor pronunciado, notas a caramelo.</p>
+                            <p class="card-text fw-bold product-price-source">$950.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=grano&origen=salta" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=grano&origen=bolivia" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="grano-bolivia" 
+                                    data-nombre="Café Tostado Bolivia" 
+                                    data-precio="950" 
+                                    data-imagen="assets/img/cafe_bolivia_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="assets/img/cafe_bolivia_card.jpg" class="card-img-top" alt="Café Tostado Bolivia">
+                        <img src="assets/img/cafe_brasil_card.jpg" class="card-img-top product-image-source" alt="Café Tostado Brasil">
                         <div class="card-body">
-                            <h5 class="card-title">Café Tostado Bolivia</h5>
-                            <p class="card-text">Dulzor pronunciado, acidez brillante y notas a caramelo.</p>
+                            <h5 class="card-title product-name-source">Café Tostado Brasil</h5>
+                            <p class="card-text">Cuerpo medio, notas a chocolate.</p>
+                            <p class="card-text fw-bold product-price-source">$850.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=grano&origen=bolivia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 product-card">
-                        <img src="assets/img/cafe_brasil_card.jpg" class="card-img-top" alt="Café Tostado Brasil">
-                        <div class="card-body">
-                            <h5 class="card-title">Café Tostado Brasil</h5>
-                            <p class="card-text">Cuerpo medio, baja acidez, notas a chocolate y nuez.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=grano&origen=brasil" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=grano&origen=brasil" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="grano-brasil" 
+                                    data-nombre="Café Tostado Brasil" 
+                                    data-precio="850" 
+                                    data-imagen="assets/img/cafe_brasil_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -177,41 +231,65 @@
 
         <section id="capsulas" class="py-5 bg-light-brown">
             <h2 class="text-center mb-4 section-title">Cápsulas de Café</h2>
-            <p class="text-center mb-4 sub-section-description">Mismos exquisitos sabores, ahora en prácticas cápsulas compatibles.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="https://via.placeholder.com/400x300/A0522D/FFFFFF?text=Cápsulas+Colombia" class="card-img-top" alt="Cápsulas Colombia">
+                        <img src="https://via.placeholder.com/400x300/A0522D/FFFFFF?text=Cápsulas+Colombia" class="card-img-top product-image-source" alt="Cápsulas Colombia">
                         <div class="card-body">
-                            <h5 class="card-title">Cápsulas Café Colombia</h5>
-                            <p class="card-text">El balance perfecto de Colombia en tu cafetera de cápsulas.</p>
+                            <h5 class="card-title product-name-source">Cápsulas Café Colombia (x10)</h5>
+                            <p class="card-text">Balance perfecto en tu cafetera.</p>
+                            <p class="card-text fw-bold product-price-source">$1500.00</p>
                         </div>
-                        <div class="card-footer">
-                          <a href="producto-detalle.html?tipo=capsula&origen=colombia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                        <a href="producto-detalle.html?tipo=capsula&origen=colombia" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                        <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                data-id="capsula-colombia-10" 
+                                data-nombre="Cápsulas Café Colombia (x10)" 
+                                data-precio="1500" 
+                                data-imagen="https://via.placeholder.com/400x300/A0522D/FFFFFF?text=Cápsulas+Colombia">
+                            <i class="bi bi-cart-plus"></i> Agregar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repite esta estructura para las demás cápsulas -->
+                <div class="col">
+                    <div class="card h-100 product-card">
+                        <img src="https://via.placeholder.com/400x300/8B4513/FFFFFF?text=Cápsulas+Etiopía" class="card-img-top product-image-source" alt="Cápsulas Etiopía">
+                        <div class="card-body">
+                            <h5 class="card-title product-name-source">Cápsulas Café Etiopía (x10)</h5>
+                            <p class="card-text">Notas florales en formato cápsula.</p>
+                            <p class="card-text fw-bold product-price-source">$1700.00</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                        <a href="producto-detalle.html?tipo=capsula&origen=etiopia" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                        <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                data-id="capsula-etiopia-10" 
+                                data-nombre="Cápsulas Café Etiopía (x10)" 
+                                data-precio="1700" 
+                                data-imagen="https://via.placeholder.com/400x300/8B4513/FFFFFF?text=Cápsulas+Etiopía">
+                            <i class="bi bi-cart-plus"></i> Agregar
+                        </button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="https://via.placeholder.com/400x300/8B4513/FFFFFF?text=Cápsulas+Etiopía" class="card-img-top" alt="Cápsulas Etiopía">
+                        <img src="https://via.placeholder.com/400x300/C4A484/333333?text=Cápsulas+Salta" class="card-img-top product-image-source" alt="Cápsulas Salta">
                         <div class="card-body">
-                            <h5 class="card-title">Cápsulas Café Etiopía</h5>
-                            <p class="card-text">Notas florales y frutales ahora en formato cápsula.</p>
+                            <h5 class="card-title product-name-source">Cápsulas Café Salta (x10)</h5>
+                            <p class="card-text">Intensidad de Salta en cápsula.</p>
+                            <p class="card-text fw-bold product-price-source">$1400.00</p>
                         </div>
-                        <div class="card-footer">
-                          <a href="producto-detalle.html?tipo=capsula&origen=etiopia" class="btn btn-sm btn-outline-primary">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 product-card">
-                        <img src="https://via.placeholder.com/400x300/C4A484/333333?text=Cápsulas+Salta" class="card-img-top" alt="Cápsulas Salta">
-                        <div class="card-body">
-                            <h5 class="card-title">Cápsulas Café Salta</h5>
-                            <p class="card-text">La intensidad de Salta en la comodidad de una cápsula.</p>
-                        </div>
-                        <div class="card-footer">
-                          <a href="producto-detalle.html?tipo=capsula&origen=salta" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                        <a href="producto-detalle.html?tipo=capsula&origen=salta" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                        <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                data-id="capsula-salta-10" 
+                                data-nombre="Cápsulas Café Salta (x10)" 
+                                data-precio="1400" 
+                                data-imagen="https://via.placeholder.com/400x300/C4A484/333333?text=Cápsulas+Salta">
+                            <i class="bi bi-cart-plus"></i> Agregar
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -220,41 +298,65 @@
 
         <section id="cafeteras" class="py-5">
             <h2 class="text-center mb-4 section-title">Nuestras Cafeteras</h2>
-            <p class="text-center mb-4 sub-section-description">Encuentra la máquina ideal para preparar tu Tauro Café como un experto.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="assets/img/cafetera_barista_card.jpg" class="card-img-top" alt="Cafetera Barista Profesional">
+                        <img src="assets/img/cafetera_barista_card.jpg" class="card-img-top product-image-source" alt="Cafetera Barista Profesional">
                         <div class="card-body">
-                            <h5 class="card-title">Cafetera Barista Profesional</h5>
-                            <p class="card-text">Para los amantes del espresso perfecto y el arte latte.</p>
+                            <h5 class="card-title product-name-source">Cafetera Barista Profesional</h5>
+                            <p class="card-text">Para amantes del espresso perfecto.</p>
+                            <p class="card-text fw-bold product-price-source">$50000.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=cafetera&modelo=barista" class="btn btn-sm btn-outline-primary">Más info</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=cafetera&modelo=barista" class="btn btn-sm btn-outline-secondary">Más info</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="cafetera-barista" 
+                                    data-nombre="Cafetera Barista Profesional" 
+                                    data-precio="50000" 
+                                    data-imagen="assets/img/cafetera_barista_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repite para las demás cafeteras -->
+                <div class="col">
+                    <div class="card h-100 product-card">
+                        <img src="assets/img/cafetera_nespresso_card.jpg" class="card-img-top product-image-source" alt="Cafetera Símil Nespresso">
+                        <div class="card-body">
+                            <h5 class="card-title product-name-source">Cafetera Símil Nespresso</h5>
+                            <p class="card-text">Diseño compacto y elegante.</p>
+                            <p class="card-text fw-bold product-price-source">$25000.00</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=cafetera&modelo=nespresso" class="btn btn-sm btn-outline-secondary">Más info</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="cafetera-nespresso" 
+                                    data-nombre="Cafetera Símil Nespresso" 
+                                    data-precio="25000" 
+                                    data-imagen="assets/img/cafetera_nespresso_card.jpg">
+                                <i class="bi bi-cart-plus"></i> Agregar
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100 product-card">
-                        <img src="assets/img/cafetera_nespresso_card.jpg" class="card-img-top" alt="Cafetera Símil Nespresso">
+                        <img src="assets/img/cafetera_filtro_card.jpg" class="card-img-top product-image-source" alt="Cafetera Eléctrica de Filtro">
                         <div class="card-body">
-                            <h5 class="card-title">Cafetera Símil Nespresso</h5>
-                            <p class="card-text">Diseño compacto y elegante para disfrutar nuestras cápsulas.</p>
+                            <h5 class="card-title product-name-source">Cafetera Eléctrica de Filtro</h5>
+                            <p class="card-text">Ideal para preparar varias tazas.</p>
+                            <p class="card-text fw-bold product-price-source">$15000.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=cafetera&modelo=nespresso" class="btn btn-sm btn-outline-primary">Más info</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 product-card">
-                        <img src="assets/img/cafetera_filtro_card.jpg" class="card-img-top" alt="Cafetera Eléctrica de Filtro">
-                        <div class="card-body">
-                            <h5 class="card-title">Cafetera Eléctrica de Filtro</h5>
-                            <p class="card-text">Ideal para preparar varias tazas a la vez. Sabor clásico.</p>
-                        </div>
-                        <div class="card-footer">
-                          <a href="producto-detalle.html?tipo=cafetera&modelo=filtro" class="btn btn-sm btn-outline-primary">Más info</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                        <a href="producto-detalle.html?tipo=cafetera&modelo=filtro" class="btn btn-sm btn-outline-secondary">Más info</a>
+                        <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                data-id="cafetera-filtro" 
+                                data-nombre="Cafetera Eléctrica de Filtro" 
+                                data-precio="15000" 
+                                data-imagen="assets/img/cafetera_filtro_card.jpg">
+                            <i class="bi bi-cart-plus"></i> Agregar
+                        </button>
                         </div>
                     </div>
                 </div>
@@ -263,17 +365,24 @@
 
         <section id="accesorios" class="py-5 bg-light-brown">
             <h2 class="text-center mb-4 section-title">Accesorios Esenciales</h2>
-            <p class="text-center mb-4 sub-section-description">Los complementos perfectos para tu ritual cafetero.</p>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 product-card">
-                        <img src="https://via.placeholder.com/400x300/F5F5DC/333333?text=Filtros+Especiales" class="card-img-top" alt="Filtros Especiales para Cafetera">
+                        <img src="https://via.placeholder.com/400x300/F5F5DC/333333?text=Filtros+Especiales" class="card-img-top product-image-source" alt="Filtros Especiales">
                         <div class="card-body">
-                            <h5 class="card-title">Filtros Especiales (30 unidades)</h5>
-                            <p class="card-text">Filtros de papel de alta calidad para tu cafetera eléctrica.</p>
+                            <h5 class="card-title product-name-source">Filtros Especiales (30 unidades)</h5>
+                            <p class="card-text">Filtros de papel de alta calidad.</p>
+                            <p class="card-text fw-bold product-price-source">$500.00</p>
                         </div>
-                        <div class="card-footer">
-                            <a href="producto-detalle.html?tipo=accesorio&item=filtros" class="btn btn-sm btn-outline-primary">Comprar</a>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <a href="producto-detalle.html?tipo=accesorio&item=filtros" class="btn btn-sm btn-outline-secondary">Ver detalles</a>
+                            <button class="btn btn-sm btn-primary botonAgregarTauro" 
+                                    data-id="accesorio-filtros-30" 
+                                    data-nombre="Filtros Especiales (30 unidades)" 
+                                    data-precio="500" 
+                                    data-imagen="https://via.placeholder.com/400x300/F5F5DC/333333?text=Filtros+Especiales">
+                                <i class="bi bi-cart-plus"></i> Comprar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -282,7 +391,7 @@
 
         <section id="contacto" class="py-5 text-center contact-cta-section">
             <h2 class="mb-3 section-title">¿Listo para tu próximo café?</h2>
-            <p class="lead mb-4">Explora nuestra selección o contáctanos para asesoramiento personalizado.</p>
+            <p class="lead mb-4">Explora o contáctanos para asesoramiento.</p>
             <button class="btn btn-primary btn-lg product-toast-trigger" data-toast-message="¡Gracias por tu interés! Pronto te contactaremos.">Quiero Saber Más</button>
         </section>
     </main>
@@ -297,20 +406,22 @@
         </div>
     </footer>
 
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <strong class="me-auto">Tauro Café</strong>
-          <small>Ahora mismo</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    <!-- TOAST DE NOTIFICACIÓN (estructura de tu ejemplo "Riche") -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <div id="productoAgregadoTauroToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Tauro Café</strong> <!-- Título del Toast -->
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <!-- El mensaje se insertará aquí por JavaScript -->
+                <p>Producto agregado!</p>
+            </div>
         </div>
-        <div class="toast-body">
-          Este es un mensaje de ejemplo.
-        </div>
-      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="script.js" defer></script>
+    <!-- Enlaza a carrito.js que crearemos a continuación -->
+    <script src="carrito.js"></script>
 </body>
 </html>

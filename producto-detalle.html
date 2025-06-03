@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Producto - Tauro Café</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        /* Estilos específicos de producto-detalle.html (mantenidos y ajustados) */
         body {
-            padding-top: 20px;
+            /* padding-top ya es manejado por la clase .navbar-custom en style.css */
             background-color: var(--cafe-cream);
         }
         .product-detail-container {
@@ -19,6 +22,8 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 2rem; /* Espacio para la navbar fija */
+            margin-bottom: 8rem; /* Espacio para el footer */
         }
         .product-detail-img {
             max-width: 100%;
@@ -36,11 +41,87 @@
         .breadcrumb-item a:hover {
             text-decoration: underline;
         }
+        /* Footer específico para esta página, ajustado */
+        .footer-product-detail {
+            background-color: var(--cafe-brown-dark);
+            color: var(--cafe-beige);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            position: fixed; /* Puede ser problemático si el contenido es largo */
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
-    <div class="container mt-5 mb-5">
-        <nav aria-label="breadcrumb">
+    <!-- Navbar Unificada (misma que en index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Tauro Café</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavPrincipal" aria-controls="navbarNavPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavPrincipal">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProductosMenuDetail" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownProductosMenuDetail">
+                            <li><a class="dropdown-item" href="index.html#granos">Café en Grano y Molido</a></li>
+                            <li><a class="dropdown-item" href="index.html#capsulas">Cápsulas de Café</a></li>
+                            <li><a class="dropdown-item" href="index.html#cafeteras">Cafeteras</a></li>
+                            <li><a class="dropdown-item" href="index.html#accesorios">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="sucursalesDropdownDetail" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sucursales
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-sucursales dropdown-menu-end p-3" aria-labelledby="sucursalesDropdownDetail">
+                            <h5 class="text-center mb-3">Conoce nuestras sucursales</h5>
+                            <img src="assets/img/placeholder_sucursal.jpg" alt="Foto Sucursal" class="img-fluid rounded mb-2" id="foto-sucursal-placeholder-detail">
+                            <p class="text-center small">Próximamente más información sobre nuestras ubicaciones.</p>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" id="cart-icon-detail" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                            <i class="bi bi-cart-fill fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-item-count">
+                                0
+                                <span class="visually-hidden">items in cart</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas para el Carrito (mismo que en index.html) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel">Tu Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="cart-items-container">
+                <p class="text-center text-muted empty-cart-message">Tu carrito está vacío.</p>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Total:</h4>
+                <h4 id="cart-total-price">$0.00</h4>
+            </div>
+            <button class="btn btn-primary w-100" id="checkout-button" disabled>Finalizar Compra</button>
+        </div>
+    </div>
+    
+    <div class="container mt-5 mb-5"> <!-- Ajuste mt-5 para navbar -->
+        <nav aria-label="breadcrumb" style="margin-top: 70px;"> <!-- Ajuste para navbar fija -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Detalle del Producto</li>
@@ -59,45 +140,84 @@
                     <div id="product-options-section">
                         <h4>Características y Opciones:</h4>
                         <ul id="product-options-list" class="list-unstyled product-options">
-                            
+                            <!-- Opciones se cargan por JS -->
                         </ul>
                     </div>
 
-                    <h4 class="mt-4">Precio: <span id="product-price">Consultar</span></h4>
-                    <button class="btn btn-primary btn-lg mt-3">Contactar para Comprar</button>
+                    <h4 class="mt-4">Precio: <span id="product-price-detail">$0.00</span></h4>
+                    <!-- Botón modificado para agregar al carrito -->
+                    <button class="btn btn-primary btn-lg mt-3 add-to-cart-btn-detail" 
+                            id="add-to-cart-detail-page"
+                            data-id="" 
+                            data-name="" 
+                            data-price="" 
+                            data-image="">
+                        <i class="bi bi-cart-plus-fill"></i> Agregar al Carrito
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center py-4 fixed-bottom" style="background-color: var(--cafe-brown-dark); color: var(--cafe-beige);">
+    <footer class="text-center py-4 footer-product-detail"> <!-- Clase específica para este footer -->
         <div class="container">
             <p>© 2024 Tauro Café. Volver a <a href="index.html" class="footer-link">Página Principal</a>.</p>
         </div>
     </footer>
 
+    <!-- Toast para notificaciones -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+        <strong class="me-auto">Tauro Café</strong>
+        <small>Ahora mismo</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+        <!-- El mensaje se cambiará con JS -->
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- El script.js general manejará el carrito, el producto-detail.js se enfocará en cargar la info del producto -->
+    <script src="script.js"></script> 
     <script>
+        // Precios ficticios para producto-detalle.html
+        const productPrices = {
+            "grano-colombia": 1000, "grano-etiopia": 1200, "grano-salta": 900, "grano-bolivia": 950, "grano-brasil": 850,
+            "capsula-colombia": 1500, "capsula-etiopia": 1700, "capsula-salta": 1400,
+            "cafetera-barista": 50000, "cafetera-nespresso": 25000, "cafetera-filtro": 15000,
+            "accesorio-filtros": 500
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams(window.location.search);
             const tipo = params.get('tipo');
-            const origen = params.get('origen');
-            const modelo = params.get('modelo');
-            const item = params.get('item');
+            const origen = params.get('origen'); // Para granos y capsulas
+            const modelo = params.get('modelo'); // Para cafeteras
+            const item = params.get('item');     // Para accesorios
 
             const productNameEl = document.getElementById('product-name');
             const productDescriptionEl = document.getElementById('product-description');
             const productImageEl = document.getElementById('product-image');
             const productOptionsListEl = document.getElementById('product-options-list');
             const breadcrumbProductNameEl = document.getElementById('breadcrumb-product-name');
+            const productPriceDetailEl = document.getElementById('product-price-detail');
+            const addToCartButtonDetail = document.getElementById('add-to-cart-detail-page');
 
             let productData = {
+                id: "unknown",
                 name: "Producto no encontrado",
                 description: "No se pudo cargar la información del producto.",
                 image: "https://via.placeholder.com/600x450/CCCCCC/FFFFFF?text=Error",
-                options: []
+                options: [],
+                price: 0
             };
 
+            // Lógica para cargar datos del producto (existente, con adición de ID y precio)
             if (tipo === 'grano') {
+                productData.id = `grano-${origen}`;
                 productData.description = `Nuestro café en grano de origen ${origen}, tostado a la perfección para resaltar sus notas únicas. Ideal para moler justo antes de preparar y disfrutar de la máxima frescura.`;
                 productData.options = [
                     "Grano Entero: Bolsa de 1kg",
@@ -107,85 +227,107 @@
                 ];
                 if (origen === 'colombia') {
                     productData.name = "Café Tostado Colombia";
-                    productData.image = "https://via.placeholder.com/600x450/A0522D/FFFFFF?text=Café+Colombia";
+                    productData.image = "assets/img/cafe_colombia_card.jpg"; // Usar imagen local
                     productData.description += " Presenta un perfil suave y equilibrado, con notas cítricas y achocolatadas."
                 } else if (origen === 'etiopia') {
                     productData.name = "Café Tostado Etiopía";
-                    productData.image = "https://via.placeholder.com/600x450/8B4513/FFFFFF?text=Café+Etiopía";
+                    productData.image = "assets/img/cafe_etiopia_card.jpg"; // Usar imagen local
                     productData.description += " Cuna del café, ofrece notas florales y frutales distintivas y una acidez brillante."
                 } else if (origen === 'salta') {
                     productData.name = "Café Tostado Salta";
-                    productData.image = "https://via.placeholder.com/600x450/C4A484/333333?text=Café+Salta";
+                    productData.image = "assets/img/cafe_salta_card.jpg"; // Usar imagen local
                     productData.description += " Un café de altura con cuerpo intenso, baja acidez y notas a frutos secos y chocolate."
                 } else if (origen === 'bolivia') {
                     productData.name = "Café Tostado Bolivia";
-                    productData.image = "https://via.placeholder.com/600x450/A0522D/FFFFFF?text=Café+Bolivia";
+                    productData.image = "assets/img/cafe_bolivia_card.jpg";
                     productData.description += " Caracterizado por su dulzor pronunciado, acidez brillante y deliciosas notas a caramelo y cítricos."
                 } else if (origen === 'brasil') {
                     productData.name = "Café Tostado Brasil";
-                    productData.image = "https://via.placeholder.com/600x450/8B4513/FFFFFF?text=Café+Brasil";
+                    productData.image = "assets/img/cafe_brasil_card.jpg";
                     productData.description += " Ofrece un cuerpo medio, baja acidez reconfortante y clásicas notas a chocolate y nuez."
                 }
             } else if (tipo === 'capsula') {
-                productData.description = `Disfruta de la conveniencia de nuestras cápsulas compatibles con tu cafetera, llenas del auténtico sabor del café de origen ${origen}.`;
+                productData.id = `capsula-${origen}-10`; // Asumiendo pack de 10
+                productData.description = `Disfruta de la conveniencia de nuestras cápsulas compatibles con tu cafetera, llenas del auténtico sabor del café de origen ${origen}. Presentación en pack de 10 unidades.`;
                 productData.options = [
-                    "Pack de 10 unidades",
-                    "Pack de 20 unidades (con descuento especial)"
+                    "Compatibles con sistemas Nespresso® y similares.",
+                    "Intensidad: Media-Alta (varía por origen)"
                 ];
                 if (origen === 'colombia') {
-                    productData.name = "Cápsulas Café Colombia";
+                    productData.name = "Cápsulas Café Colombia (x10)";
                     productData.image = "https://via.placeholder.com/600x450/A0522D/FFFFFF?text=Cápsulas+Colombia";
                 } else if (origen === 'etiopia') {
-                    productData.name = "Cápsulas Café Etiopía";
+                    productData.name = "Cápsulas Café Etiopía (x10)";
                     productData.image = "https://via.placeholder.com/600x450/8B4513/FFFFFF?text=Cápsulas+Etiopía";
                 } else if (origen === 'salta') {
-                    productData.name = "Cápsulas Café Salta";
+                    productData.name = "Cápsulas Café Salta (x10)";
                     productData.image = "https://via.placeholder.com/600x450/C4A484/333333?text=Cápsulas+Salta";
                 }
             } else if (tipo === 'cafetera') {
+                productData.id = `cafetera-${modelo}`;
                 productData.options = ["Garantía del fabricante: 1 año", "Colores disponibles: Según stock"];
                 if (modelo === 'barista') {
                     productData.name = "Cafetera Barista Profesional";
                     productData.description = "Experimenta la extracción perfecta del espresso y la creación de arte latte como un profesional. Esta máquina te ofrece control total sobre la presión, temperatura y tiempo para obtener resultados de cafetería en casa. Incluye vaporizador de leche de alta potencia.";
-                    productData.image = "https://via.placeholder.com/600x450/696969/FFFFFF?text=Cafetera+Barista";
+                    productData.image = "assets/img/cafetera_barista_card.jpg"; // Usar imagen local
                 } else if (modelo === 'nespresso') {
                     productData.name = "Cafetera Símil Nespresso";
                     productData.description = "Diseño moderno, compacto y elegante, perfecta para nuestras cápsulas Tauro Café. Obtén tu café favorito en segundos, de forma limpia y conveniente. Ideal para espacios reducidos y para quienes buscan rapidez y sencillez.";
-                    productData.image = "https://via.placeholder.com/600x450/A9A9A9/333333?text=Cafetera+Cápsulas";
+                    productData.image = "assets/img/cafetera_nespresso_card.jpg"; // Usar imagen local
                 } else if (modelo === 'filtro') {
                     productData.name = "Cafetera Eléctrica de Filtro";
                     productData.description = "La cafetera clásica para los amantes del café filtrado. Prepara varias tazas a la vez de forma sencilla y mantén el café caliente gracias a su placa calefactora. Perfecta para el hogar o la oficina, ofreciendo un sabor consistente y delicioso.";
-                    productData.image = "https://via.placeholder.com/600x450/D3D3D3/333333?text=Cafetera+Filtro";
+                    productData.image = "assets/img/cafetera_filtro_card.jpg"; // Usar imagen local
                 }
             } else if (tipo === 'accesorio') {
                 if (item === 'filtros') {
-                    productData.name = "Filtros Especiales para Cafetera de Filtro";
+                    productData.id = `accesorio-filtros-30`;
+                    productData.name = "Filtros Especiales para Cafetera (30u)";
                     productData.description = "Paquete de 30 unidades de filtros de papel de alta calidad, diseñados para una extracción óptima en cafeteras eléctricas de filtro. Aseguran una bebida limpia, sin sedimentos y con todo el sabor de tu café Tauro.";
                     productData.image = "https://via.placeholder.com/600x450/F5F5DC/333333?text=Filtros+Especiales";
                     productData.options = ["Material: Papel blanqueado sin cloro", "Tamaño: Estándar para la mayoría de cafeteras de filtro", "Cantidad: 30 unidades por paquete"];
                 }
             }
+            
+            // Asignar precio
+            productData.price = productPrices[productData.id] || 0;
 
+            // Actualizar DOM
             productNameEl.textContent = productData.name;
             productDescriptionEl.textContent = productData.description;
             productImageEl.src = productData.image;
             productImageEl.alt = productData.name;
             breadcrumbProductNameEl.textContent = productData.name;
             document.title = productData.name + " - Tauro Café";
+            productPriceDetailEl.textContent = `$${parseFloat(productData.price).toFixed(2)}`;
 
-
+            // Actualizar data attributes del botón "Agregar al Carrito"
+            addToCartButtonDetail.dataset.id = productData.id;
+            addToCartButtonDetail.dataset.name = productData.name;
+            addToCartButtonDetail.dataset.price = productData.price;
+            addToCartButtonDetail.dataset.image = productData.image;
+            
             productOptionsListEl.innerHTML = ''; 
             if (productData.options && productData.options.length > 0) {
                 productData.options.forEach(opt => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<i class="fas fa-check-circle text-success me-2"></i>${opt}`; 
+                    // Si quieres iconos de check, asegúrate de tener FontAwesome o Bootstrap Icons CSS
+                    // li.innerHTML = `<i class="bi bi-check-circle-fill text-success me-2"></i>${opt}`; 
+                    li.textContent = opt; // Sin icono por ahora para simplificar
                     productOptionsListEl.appendChild(li);
                 });
+                document.getElementById('product-options-section').style.display = 'block';
             } else {
                 document.getElementById('product-options-section').style.display = 'none';
             }
+
+            // Listener para el botón de agregar al carrito en esta página
+            // Lo manejo globalmente en script.js, pero aquí está la configuración del botón
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Font Awesome no es necesario si usamos Bootstrap Icons -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script> -->
 </body>
 </html>
