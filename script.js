@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-    // Scroll suave (código existente)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -16,12 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
-
-    // Toast (código existente, modificado para ser reutilizable)
     const toastLiveExample = document.getElementById('liveToast');
     const toastBootstrap = toastLiveExample ? new bootstrap.Toast(toastLiveExample, { delay: 3000 }) : null;
-    
+
     function showToast(message, title = "Tauro Café") {
         if (toastBootstrap) {
             const toastBody = toastLiveExample.querySelector('.toast-body');
@@ -39,8 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
-    // --- INICIO LÓGICA DEL CARRITO DE COMPRAS ---
     let cart = [];
     const cartItemsContainer = document.getElementById('cart-items-container');
     const cartTotalPriceEl = document.getElementById('cart-total-price');
@@ -198,10 +191,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Cargar carrito al iniciar
     loadCartFromLocalStorage();
 
-    // 🔁 RE-CARGAR CARRITO CUANDO SE ABRE EL OFFCANVAS
     const cartOffcanvas = document.getElementById('cartOffcanvas');
     if (cartOffcanvas) {
         cartOffcanvas.addEventListener('show.bs.offcanvas', () => {
@@ -210,34 +201,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-    // Placeholder para la imagen de sucursales si no se carga
-    const sucursalImagePlaceholders = document.querySelectorAll('#foto-sucursal-placeholder, #foto-sucursal-placeholder-detail');
-    sucursalImagePlaceholders.forEach(img => {
-        img.onerror = function() {
-            // Opcional: Cambiar a una imagen de fallback o mostrar un mensaje
-            this.alt = "Imagen de sucursal no disponible";
-            // this.src = 'assets/img/sucursal_default.jpg'; // si tienes una imagen default
-        };
-        // Simular carga de imagen, si no existe, se activará el onerror
-        if (img.src.endsWith('TU_FOTO_SUCURSALES.jpg') || img.src.endsWith('placeholder_sucursal.jpg')) {
-             // Para desarrollo, puedes poner un placeholder real:
-            img.src = 'https://via.placeholder.com/250x150/A08A7A/4a3b31?text=Nuestra+Sucursal';
+const sucursalImagePlaceholders = document.querySelectorAll('#foto-sucursal-placeholder, #foto-sucursal-placeholder-detail');
+sucursalImagePlaceholders.forEach(img => {
+    img.onerror = function() {
+        this.alt = "Imagen de sucursal no disponible";
+    };
+    if (img.src.endsWith('TU_FOTO_SUCURSALES.jpg') || img.src.endsWith('placeholder_sucursal.jpg')) {
+        img.src = 'https://via.placeholder.com/250x150/A08A7A/4a3b31?text=Nuestra+Sucursal';
+    }
+});
+
+if (checkoutButton) {
+    checkoutButton.addEventListener('click', function() {
+        if (cart.length > 0) {
+            showToast("¡Gracias por tu compra! (Función de checkout no implementada)", "Compra Exitosa");
+            showToast("Tu carrito está vacío.", "Atención");
         }
     });
-
-
-    // Para el botón de finalizar compra (acción no definida, solo ejemplo)
-    if (checkoutButton) {
-        checkoutButton.addEventListener('click', function() {
-            if (cart.length > 0) {
-                showToast("¡Gracias por tu compra! (Función de checkout no implementada)", "Compra Exitosa");
-                // Aquí iría la lógica para procesar el pedido
-                // cart = []; // Vaciar carrito después de "comprar"
-                // saveCartToLocalStorage();
-                // renderCart();
-                // bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas')).hide();
-            } else {
-                showToast("Tu carrito está vacío.", "Atención");
-            }
-        });
-    }
+}
