@@ -1,0 +1,275 @@
+:root {
+    --cafe-brown-dark: #4a3b31;      /* Fondo para la navbar */
+    --cafe-brown-medium: #7B5E4D;
+    --cafe-brown-light: #A08A7A;
+    --cafe-beige: #D2B48C;          /* Color principal del texto de la navbar */
+    --cafe-cream: #F5F5DC;          /* Fondo general del body */
+    --primary-accent: #c7a17a;      /* Color para hover/activo en la navbar */
+    --text-dark: #3a2e27;
+    --text-light: #f8f9fa;
+    --text-muted-cafe: #6c5e53;
+    --cafe-brown-dark-rgb: 74,59,49;
+    --navbar-height: 70px;          /* Altura de la navbar */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    padding-top: var(--navbar-height); /* MUY IMPORTANTE: Espacio para la navbar fija */
+    background-color: var(--cafe-cream);
+    line-height: 1.6;
+}
+
+/* --- Navbar Principal --- */
+.navbar-custom {
+    background-color: var(--cafe-brown-dark) !important; /* Fondo sólido oscuro */
+    min-height: var(--navbar-height);
+    width: 100%;
+    padding-top: 0.5rem; /* Espaciado interno vertical */
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+    z-index: 1030; /* Asegura que esté por encima (Bootstrap usa 1030 para fixed-top) */
+}
+
+.navbar-custom .navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--cafe-beige) !important;
+    transition: color 0.3s ease;
+    padding-left: 1rem;
+}
+.navbar-custom .navbar-brand:hover {
+    color: var(--primary-accent) !important;
+}
+
+.navbar-custom .nav-link {
+    color: var(--cafe-beige) !important;
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: var(--primary-accent) !important;
+}
+.navbar-custom .nav-link.active {
+    font-weight: 500;
+}
+
+.navbar-custom .navbar-toggler {
+    border-color: rgba(var(--cafe-beige), 0.5); /* Borde con el color beige de texto, semitransparente */
+}
+.navbar-custom .navbar-toggler-icon {
+    /* SVG para un icono de hamburguesa claro que contraste con el fondo oscuro */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(210,180,140,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-custom .dropdown-menu {
+    background-color: var(--cafe-brown-dark); /* Mismo fondo que la navbar */
+    border: 1px solid var(--cafe-brown-medium);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.navbar-custom .dropdown-item {
+    color: var(--cafe-beige);
+    font-size: 0.9rem;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+    background-color: var(--cafe-brown-medium); /* Color de hover dentro del dropdown */
+    color: var(--primary-accent);
+}
+
+/* Dropdown de Sucursales Personalizado */
+.dropdown-menu-sucursales {
+    min-width: 280px;
+    /* El background y color ya se heredan de .navbar-custom .dropdown-menu */
+}
+.dropdown-menu-sucursales h5 {
+    color: var(--primary-accent);
+    font-family: 'Playfair Display', serif;
+}
+.dropdown-menu-sucursales img {
+    border: 2px solid var(--cafe-brown-medium);
+}
+.dropdown-menu-sucursales p {
+    color: var(--cafe-beige);
+}
+
+/* Icono del Carrito y Contador */
+.navbar-custom .nav-link .bi-cart-fill { /* Si usas Bootstrap Icons para el carrito */
+    color: var(--cafe-beige);
+    transition: color 0.3s ease;
+}
+.navbar-custom .nav-link:hover .bi-cart-fill {
+    color: var(--primary-accent);
+}
+.contador-carrito-display { /* Nombre que usamos en el HTML */
+    font-size: 0.65rem;
+    padding: 0.2em 0.4em;
+    background-color: var(--primary-accent) !important;
+    color: var(--cafe-brown-dark) !important; /* Texto oscuro sobre fondo accent */
+    font-weight: bold;
+}
+
+/* --- ESTILOS ANTIGUOS DEL CAROUSEL (COMENTADOS O ELIMINADOS) --- */
+/*
+.main-carousel {
+    width: 100%;
+    overflow: hidden;
+}
+.main-carousel .carousel-item img {
+    min-height: 400px;
+    max-height: calc(100vh - var(--navbar-height));
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+.main-carousel .carousel-caption {
+    background: linear-gradient(to top, rgba(var(--cafe-brown-dark-rgb), 0.85), rgba(var(--cafe-brown-dark-rgb), 0));
+    padding: 1.5rem 5%;
+}
+.main-carousel .carousel-title-main {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+.main-carousel .carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.main-carousel .carousel-cta-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: var(--primary-accent);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+*/
+
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN DE PORTADA (HERO) --- */
+#hero-portada {
+    background-image: linear-gradient(rgba(var(--cafe-brown-dark-rgb), 0.4), rgba(var(--cafe-brown-dark-rgb), 0.6)), url('assets/img/portada_cafe_fondo.jpg'); /* <<<<<<< ¡ASEGÚRATE DE TENER ESTA IMAGEN! */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: var(--text-light); /* Texto claro sobre el fondo oscuro/imagen */
+    padding: 5rem 0; /* Ajusta el padding vertical según necesites */
+    min-height: 60vh; /* Altura mínima para la sección */
+    /* La clase d-flex align-items-center text-center ya está en el HTML para centrar contenido */
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem; /* Ajusta el tamaño */
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem; /* Ligeramente más pequeño */
+    font-weight: 300;
+    max-width: 650px; /* Un poco más angosto */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.hero-action-card {
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente más sutil para las tarjetas */
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(var(--cafe-beige), 0.2); /* Borde sutil */
+}
+
+.hero-action-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(var(--cafe-brown-dark-rgb), 0.5); /* Más oscuro al hacer hover */
+}
+
+.hero-action-img {
+    max-height: 160px; /* Altura máxima para las imágenes dentro de las tarjetas */
+    width: 100%; /* Que ocupe el ancho disponible dentro de su contenedor */
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1.5rem; /* Más espacio debajo de la imagen */
+}
+
+.hero-action-card h5 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--cafe-beige); 
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+}
+
+.hero-action-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; 
+}
+
+.hero-cta-button { /* Estilo para los botones dentro de las tarjetas de acción */
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+    color: var(--cafe-brown-dark) !important; /* Forzar color de texto para especificidad con .nav-link */
+    font-weight: 500;
+    padding: 0.6rem 1.5rem; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block; /* Cambiado para que se ajuste al contenido */
+    text-decoration: none; /* Por si se usa como <a> */
+    border-radius: 0.25rem; /* Redondeo estándar de Bootstrap */
+}
+.hero-cta-button:hover {
+    background-color: #b08d67;
+    border-color: #b08d67;
+    color: var(--cafe-brown-dark) !important;
+}
+
+
+/* --- SECCIONES Y TÍTULOS --- */
+/* (los estilos de .section-title, .sub-section-description que ya tenías permanecen igual) */
+
+/* --- TARJETAS DE PRODUCTO --- */
+/* (los estilos de .product-card, etc. que ya tenías permanecen igual) */
+
+/* --- BOTONES --- */
+/* (los estilos de .btn-primary, .btn-outline-secondary que ya tenías permanecen igual) */
+
+/* --- SECCIONES CON FONDOS ESPECIALES --- */
+/* (los estilos de .bg-light-brown, .contact-cta-section que ya tenías permanecen igual) */
+
+/* --- FOOTER --- */
+/* (los estilos de .main-footer, .footer-link que ya tenías permanecen igual) */
+
+/* --- OFFCANVAS DEL CARRITO --- */
+/* (los estilos de #carritoOffcanvasTauro, .producto-en-carrito que ya tenías permanecen igual) */
+
+/* --- TOAST DE NOTIFICACIÓN --- */
+/* (los estilos de #productoAgregadoTauroToast que ya tenías permanecen igual) */
+
+/* Si tienes estilos específicos para `producto-detalle.html` aquí, deberían estar bien */
+/* Ejemplo de la imagen en product-detail.html */
+.product-detail-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}

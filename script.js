@@ -16,15 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Carousel (código existente)
-    const mainCarouselElement = document.getElementById('mainCarousel');
-    if (mainCarouselElement) {
-        new bootstrap.Carousel(mainCarouselElement, {
-            interval: 4000, // Un poco más lento
-            wrap: true,      
-            ride: 'carousel', // 'carousel' es más común que 'true'
-        });
-    }
+
 
     // Toast (código existente, modificado para ser reutilizable)
     const toastLiveExample = document.getElementById('liveToast');
