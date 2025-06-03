@@ -1,444 +1,316 @@
 :root {
-    --cafe-brown-dark: #4a3b31;      /* Fondo para la navbar */
-    --cafe-brown-medium: #7B5E4D;
-    --cafe-brown-light: #A08A7A;
-    --cafe-beige: #D2B48C;          /* Color principal del texto de la navbar */
-    --cafe-cream: #F5F5DC;          /* Fondo general del body */
-    --primary-accent: #c7a17a;      /* Color para hover/activo en la navbar */
-    --text-dark: #3a2e27;
-    --text-light: #f8f9fa;
-    --text-muted-cafe: #6c5e53;
-    --cafe-brown-dark-rgb: 74,59,49;
-    --navbar-height: 100px;          /* Altura de la navbar */
+--cafe-brown-dark: #4a3b31;
+--cafe-brown-medium: #7B5E4D;
+--cafe-brown-light: #A08A7A;
+--cafe-beige: #D2B48C;
+--cafe-cream: #F5F5DC;
+--primary-accent: #c7a17a;
+--text-dark: #3a2e27;
+--text-light: #f8f9fa;
+--text-muted-cafe: #6c5e53;
+--cafe-brown-dark-rgb: 74,59,49;
+--navbar-height: 100px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-dark);
-    padding-top: var(--navbar-height)!important;/* MUY IMPORTANTE: Espacio para la navbar fija */
-    background-color: var(--cafe-cream);
-    line-height: 1.6;
+font-family: 'Roboto', sans-serif;
+color: var(--text-dark);
+padding-top: var(--navbar-height) !important;
+background-color: var(--cafe-cream);
+line-height: 1.6;
 }
 
 /* --- Navbar Principal --- */
 .navbar-custom {
-    background-color: var(--cafe-brown-dark) !important; /* Fondo marrón */
-    color: white;
-    min-height: var(--navbar-height);
-    width: 100%;
-    padding: 1em;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+background-color: var(--cafe-brown-dark) !important;
+color: white;
+min-height: var(--navbar-height);
+width: 100%;
+padding: 1em;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .navbar-custom .navbar-brand {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: var(--cafe-beige) !important;
-    transition: color 0.3s ease;
-    padding-left: 1rem;
+font-family: 'Playfair Display', serif;
+font-weight: 700;
+font-size: 1.8rem;
+color: var(--cafe-beige) !important;
+transition: color 0.3s ease;
+padding-left: 1rem;
 }
 
 .navbar-custom .navbar-brand:hover {
-    color: var(--primary-accent) !important;
+color: var(--primary-accent) !important;
 }
 
 .navbar-custom .nav-link {
-    color: var(--cafe-beige) !important;
-    font-weight: 400;
-    font-size: 0.95rem;
-    margin-left: 0.8rem;
-    margin-right: 0.8rem;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+color: var(--cafe-beige) !important;
+font-weight: 400;
+font-size: 0.95rem;
+margin: 0 0.8rem;
+transition: color 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 0.5px;
 }
 
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
-    color: var(--primary-accent) !important;
+color: var(--primary-accent) !important;
 }
 
 .navbar-custom .nav-link.active {
-    font-weight: 500;
+font-weight: 500;
 }
 
 .navbar-custom .navbar-toggler {
-    border-color: rgba(var(--cafe-beige), 0.5);
+border-color: rgba(var(--cafe-beige), 0.5);
 }
 
 .navbar-custom .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(210,180,140,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(210,180,140,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-custom .dropdown-menu {
-    background-color: var(--cafe-brown-dark);
-    border: 1px solid var(--cafe-brown-medium);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+background-color: var(--cafe-brown-dark);
+border: 1px solid var(--cafe-brown-medium);
+box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 .navbar-custom .dropdown-item {
-    color: var(--cafe-beige);
-    font-size: 0.9rem;
+color: var(--cafe-beige);
+font-size: 0.9rem;
 }
 
 .navbar-custom .dropdown-item:hover,
 .navbar-custom .dropdown-item:focus {
-    background-color: var(--cafe-brown-medium);
-    color: var(--primary-accent);
+background-color: var(--cafe-brown-medium);
+color: var(--primary-accent);
 }
 
-
-/* Dropdown de Sucursales Personalizado */
 .dropdown-menu-sucursales {
-    min-width: 280px;
-    /* El background y color ya se heredan de .navbar-custom .dropdown-menu */
+min-width: 280px;
 }
+
 .dropdown-menu-sucursales h5 {
-    color: var(--primary-accent);
-    font-family: 'Playfair Display', serif;
+color: var(--primary-accent);
+font-family: 'Playfair Display', serif;
 }
+
 .dropdown-menu-sucursales img {
-    border: 2px solid var(--cafe-brown-medium);
+border: 2px solid var(--cafe-brown-medium);
 }
+
 .dropdown-menu-sucursales p {
-    color: var(--cafe-beige);
+color: var(--cafe-beige);
 }
 
-/* Icono del Carrito y Contador */
-.navbar-custom .nav-link .bi-cart-fill { /* Si usas Bootstrap Icons para el carrito */
-    color: var(--cafe-beige);
-    transition: color 0.3s ease;
+.navbar-custom .nav-link .bi-cart-fill {
+color: var(--cafe-beige);
+transition: color 0.3s ease;
 }
+
 .navbar-custom .nav-link:hover .bi-cart-fill {
-    color: var(--primary-accent);
-}
-.contador-carrito-display { /* Nombre que usamos en el HTML */
-    font-size: 0.65rem;
-    padding: 0.2em 0.4em;
-    background-color: var(--primary-accent) !important;
-    color: var(--cafe-brown-dark) !important; /* Texto oscuro sobre fondo accent */
-    font-weight: bold;
+color: var(--primary-accent);
 }
 
+.contador-carrito-display {
+font-size: 0.65rem;
+padding: 0.2em 0.4em;
+background-color: var(--primary-accent) !important;
+color: var(--cafe-brown-dark) !important;
+font-weight: bold;
+}
 
-
-/* --- NUEVOS ESTILOS PARA LA SECCIÓN DE PORTADA (HERO) --- */
+/* --- Portada (Hero) --- */
 #hero-portada {
-    background-image: linear-gradient(rgba(var(--cafe-brown-dark-rgb), 0.4), rgba(var(--cafe-brown-dark-rgb), 0.6)), url('assets/img/portada_cafe_fondo'); /* <<<<<<< ¡ASEGÚRATE DE TENER ESTA IMAGEN! */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    color: var(--text-light); /* Texto claro sobre el fondo oscuro/imagen */
-    padding: 5rem 0; /* Ajusta el padding vertical según necesites */
-    min-height: 60vh; /* Altura mínima para la sección */
-    /* La clase d-flex align-items-center text-center ya está en el HTML para centrar contenido */
+background-image: linear-gradient(rgba(var(--cafe-brown-dark-rgb), 0.4), rgba(var(--cafe-brown-dark-rgb), 0.6)), url('assets/img/portada_cafe_fondo');
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+color: var(--text-light);
+padding: 5rem 0;
+min-height: 60vh;
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem; /* Ajusta el tamaño */
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para legibilidad */
-    margin-bottom: 1rem;
+font-family: 'Playfair Display', serif;
+font-size: 3.2rem;
+font-weight: 700;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+margin-bottom: 1rem;
 }
 
 .hero-subtitle {
-    font-size: 1.15rem; /* Ligeramente más pequeño */
-    font-weight: 300;
-    max-width: 650px; /* Un poco más angosto */
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+font-size: 1.15rem;
+font-weight: 300;
+max-width: 650px;
+margin: 0 auto 2.5rem;
+line-height: 1.7;
+text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .hero-action-card {
-    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente más sutil para las tarjetas */
-    padding: 2rem 1.5rem;
-    border-radius: 8px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    height: 100%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid rgba(var(--cafe-beige), 0.2); /* Borde sutil */
+background-color: rgba(0, 0, 0, 0.3);
+padding: 2rem 1.5rem;
+border-radius: 8px;
+transition: transform 0.3s ease, background-color 0.3s ease;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+border: 1px solid rgba(var(--cafe-beige), 0.2);
 }
 
 .hero-action-card:hover {
-    transform: translateY(-5px);
-    background-color: rgba(var(--cafe-brown-dark-rgb), 0.5); /* Más oscuro al hacer hover */
+transform: translateY(-5px);
+background-color: rgba(var(--cafe-brown-dark-rgb), 0.5);
 }
 
 .hero-action-img {
-    max-height: 160px; /* Altura máxima para las imágenes dentro de las tarjetas */
-    width: 100%; /* Que ocupe el ancho disponible dentro de su contenedor */
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 1.5rem; /* Más espacio debajo de la imagen */
+max-height: 160px;
+width: 100%;
+object-fit: cover;
+border-radius: 6px;
+margin-bottom: 1.5rem;
 }
 
 .hero-action-card h5 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: var(--cafe-beige); 
-    margin-bottom: 0.75rem;
-    font-size: 1.4rem;
+font-family: 'Playfair Display', serif;
+font-weight: 700;
+color: var(--cafe-beige);
+margin-bottom: 0.75rem;
+font-size: 1.4rem;
 }
 
 .hero-action-card p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    flex-grow: 1; 
+font-size: 0.95rem;
+color: var(--text-light);
+margin-bottom: 1.5rem;
+flex-grow: 1;
 }
 
-.hero-cta-button { /* Estilo para los botones dentro de las tarjetas de acción */
-    background-color: var(--primary-accent);
-    border-color: var(--primary-accent);
-    color: var(--cafe-brown-dark) !important; /* Forzar color de texto para especificidad con .nav-link */
-    font-weight: 500;
-    padding: 0.6rem 1.5rem; 
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-block; /* Cambiado para que se ajuste al contenido */
-    text-decoration: none; /* Por si se usa como <a> */
-    border-radius: 0.25rem; /* Redondeo estándar de Bootstrap */
+.hero-cta-button {
+background-color: var(--primary-accent);
+border-color: var(--primary-accent);
+color: var(--cafe-brown-dark) !important;
+font-weight: 500;
+padding: 0.6rem 1.5rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+display: inline-block;
+text-decoration: none;
+border-radius: 0.25rem;
 }
+
 .hero-cta-button:hover {
-    background-color: #b08d67;
-    border-color: #b08d67;
-    color: var(--cafe-brown-dark) !important;
+background-color: #b08d67;
+border-color: #b08d67;
+color: var(--cafe-brown-dark) !important;
+}
+
+/* --- Página de Detalle de Producto --- */
+.page-container,
+.product-detail-container {
+background-color: #fff;
+padding: 2.5rem;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+margin-top: 1rem;
+margin-bottom: 3rem;
 }
 
 .product-detail-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
+width: 100%;
+height: 350px;
+object-fit: cover;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+margin-bottom: 1.5rem;
 }
 
-/* styles.css (al final o en una sección relevante) */
-
-.map-image {
-    max-width: 800px; /* O el ancho que prefieras */
-    display: block; /* Para centrar con margin auto si es necesario */
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border: 1px solid var(--cafe-brown-light); /* Borde sutil */
-}
-
-/* --- Navbar Principal --- */
-/* ... (tus estilos existentes de navbar y :root) ... */
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-dark);
-    padding-top: var(--navbar-height)!important;/* MUY IMPORTANTE: Espacio para la navbar fija */
-    background-color: var(--cafe-cream);
-    line-height: 1.6;
-}
-
-/* ... (otros estilos existentes) ... */
-
-/* --- NUEVOS ESTILOS PARA LA SECCIÓN DE PORTADA (HERO) --- */
-/* ... (tus estilos de hero existentes) ... */
-
-.product-detail-img { /* Esta ya existía, la dejo para asegurar que esté completa */
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    /* Puedes añadir un borde si lo deseas, como en la imagen de sucursales */
-    /* border: 1px solid var(--cafe-brown-light); */
-}
-
-/* --- Estilos para la Página de Detalle de Producto (y potencialmente otras páginas de contenido) --- */
-.page-container, /* Usaremos esta clase también para el contenedor de detalle de producto */
-.product-detail-container { 
-    background-color: #fff; 
-    padding: 2.5rem; /* Un poco más de padding */
-    border-radius: 8px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra un poco más pronunciada */
-    margin-top: 1rem; /* Reducir el margen superior aquí, ya que el contenedor principal tendrá padding-top */
-    margin-bottom: 3rem;
-}
-
-.breadcrumb-item a { 
-    color: var(--primary-accent); 
-    text-decoration: none; 
-    font-weight: 500;
-}
-.breadcrumb-item a:hover { 
-    text-decoration: underline; 
-    color: var(--cafe-brown-medium);
-}
-.breadcrumb-item.active {
-    color: var(--text-muted-cafe);
-}
-
-/* Estilo para los títulos de sección/página */
-.section-title {
-    font-family: 'Playfair Display', serif;
-    color: var(--cafe-brown-dark);
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-
-:root {
-    --cafe-brown-dark: #4a3b31;
-    --cafe-brown-medium: #7B5E4D;
-    --cafe-brown-light: #A08A7A;
-    --cafe-beige: #D2B48C;
-    --cafe-cream: #F5F5DC;
-    --primary-accent: #c7a17a;
-    --text-dark: #3a2e27; /* Color de texto principal oscuro */
-    --text-light: #f8f9fa;
-    --text-muted-cafe: #6c5e53; /* Para texto secundario o menos importante */
-    --navbar-height: 100px;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-dark); /* Color de texto por defecto */
-    padding-top: var(--navbar-height)!important;
-    background-color: var(--cafe-cream);
-    line-height: 1.6;
-}
-
-/* Contenedor principal para páginas de detalle o contenido */
-.product-detail-container,
-.page-container { /* Si usas .page-container en otras páginas como sucursales */
-    background-color: #fff; /* Fondo blanco para el card de detalle */
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-top: 1rem; /* Ajustado para el container principal */
-    margin-bottom: 3rem;
-}
-
-.product-detail-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px; /* Un poco menos de redondeo para la imagen del producto */
-    /* margin-bottom: 1.5rem; /* No es necesario si está en su propia columna */
-}
-
-/* Títulos de sección y producto */
 .section-title,
-#product-name { /* Aplicar directamente al h1 del producto */
-    font-family: 'Playfair Display', serif;
-    color: var(--text-dark); /* Título principal oscuro */
-    font-weight: 700;
-    margin-bottom: 0.5rem; /* Menos margen si el subtítulo va justo debajo */
+#product-name {
+font-family: 'Playfair Display', serif;
+color: var(--text-dark);
+font-weight: 700;
+margin-bottom: 0.5rem;
 }
 
-/* Descripción del producto / Subtítulo */
 #product-description {
-    font-size: 1.1rem; /* Tamaño de la descripción como en la imagen */
-    color: var(--text-muted-cafe); /* Un color más suave para la descripción */
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
+font-size: 1.1rem;
+color: var(--text-muted-cafe);
+margin-bottom: 1.5rem;
+line-height: 1.7;
 }
 
-/* Título para "Características y Opciones" */
 .product-options-title {
-    font-family: 'Roboto', sans-serif; /* O Playfair si prefieres */
-    font-weight: 700; /* O 500 si quieres menos énfasis */
-    color: var(--text-dark);
-    font-size: 1.2rem; /* Tamaño como en la imagen */
-    margin-bottom: 0.75rem;
+font-family: 'Roboto', sans-serif;
+font-weight: 700;
+color: var(--text-dark);
+font-size: 1.2rem;
+margin-bottom: 0.75rem;
 }
 
-/* Lista de opciones */
 .product-options-list li {
-    color: var(--text-muted-cafe); /* Color de las opciones */
-    margin-bottom: 0.3rem;
-    font-size: 1rem; /* Tamaño de texto de las opciones */
+color: var(--text-muted-cafe);
+margin-bottom: 0.3rem;
+font-size: 1rem;
 }
+
 .product-options-list li i {
-    color: var(--primary-accent); /* Icono de check con color de acento */
-    margin-right: 0.5rem;
+color: var(--primary-accent);
+margin-right: 0.5rem;
 }
 
-
-/* Precio */
-.product-price-display { /* Nueva clase para el H3 que contiene el precio */
-    color: var(--text-dark);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700; /* O 500 */
-    font-size: 1.5rem; /* Tamaño del precio */
-    margin-bottom: 1.5rem;
-}
-.product-price-display span { /* El span que contiene el valor numérico del precio */
-    color: var(--text-dark); /* O var(--primary-accent) si quieres el precio con el color de acento */
+.product-price-display {
+color: var(--text-dark);
+font-family: 'Roboto', sans-serif;
+font-weight: 700;
+font-size: 1.5rem;
+margin-bottom: 1.5rem;
 }
 
+.product-price-display span {
+color: var(--text-dark);
+}
 
-/* Botón Primario (Agregar al carrito) */
 .btn-primary {
-    background-color: var(--primary-accent) !important; /* Forzar color de fondo */
-    border-color: var(--primary-accent) !important; /* Forzar color de borde */
-    color: var(--cafe-brown-dark) !important; /* Texto oscuro sobre el acento */
-    font-weight: 500;
-    padding: 0.75rem 1.5rem; /* Padding del botón */
-    font-size: 1rem; /* Tamaño de fuente del botón */
-    text-transform: none; /* Sin mayúsculas si así está en la imagen */
+background-color: var(--primary-accent) !important;
+border-color: var(--primary-accent) !important;
+color: var(--cafe-brown-dark) !important;
+font-weight: 500;
+padding: 0.75rem 1.5rem;
+font-size: 1rem;
+text-transform: none;
 }
 
 .btn-primary:hover {
-    background-color: #b08d67 !important; /* Un tono más oscuro de primary-accent para hover */
-    border-color: #b08d67 !important;
-    color: var(--cafe-brown-dark) !important;
+background-color: #b08d67 !important;
+border-color: #b08d67 !important;
+color: var(--cafe-brown-dark) !important;
 }
 
-/* Breadcrumbs */
+/* --- Breadcrumbs --- */
 .breadcrumb-item a {
-    color: var(--primary-accent);
-    text-decoration: none;
+color: var(--primary-accent);
+text-decoration: none;
 }
+
 .breadcrumb-item a:hover {
-    text-decoration: underline;
+text-decoration: underline;
 }
+
 .breadcrumb-item.active {
-    color: var(--text-muted-cafe);
-}
-.product-detail-container .product-detail-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+color: var(--text-muted-cafe);
 }
 
-.product-detail-container h1,
-.product-detail-container p,
-.product-detail-container h3,
-.product-detail-container button {
-    margin-bottom: 1rem;
-}
-
-.product-detail-container .product-options-title {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
-}
-
-.product-detail-container ul.product-options-list {
-    padding-left: 0;
-    list-style: none;
-}
-
-.product-detail-container ul.product-options-list li i {
-    color: var(--primary-accent);
-    margin-right: 0.5rem;
-}
-
-.product-detail-img {
-    width: 100%;
-    height: 350px; 
-    object-fit: cover; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* --- Imagen del Mapa en Sucursales --- */
+.map-image {
+max-width: 800px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+border: 1px solid var(--cafe-brown-light);
 }
