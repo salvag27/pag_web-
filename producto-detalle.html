@@ -10,6 +10,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS AÑADIDO PARA AJUSTAR LA IMAGEN DEL PRODUCTO --- */
+        .image-container-detalle {
+            width: 100%;
+            height: 450px; /* Altura fija para el contenedor de la imagen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa; /* Un fondo gris claro para el espacio sobrante */
+            border-radius: 8px; /* Bordes redondeados consistentes */
+            border: 1px solid #dee2e6; /* Borde sutil */
+            overflow: hidden; /* Asegura que nada se salga del contenedor */
+            margin-bottom: 1rem; /* Espacio por si se ve en móvil */
+        }
+
+        .product-detail-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* La magia sucede aquí */
+        }
+        /* -------------------------------------------------------- */
+    </style>
 </head>
 <body>
 
@@ -59,45 +83,49 @@
     </div>
     
     <!-- Contenido Principal de la Página de Detalle -->
-<main class="container mt-5 mb-5">
-    <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-            <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Detalle del Producto</li>
-        </ol>
-    </nav>
+    <main class="container mt-5 mb-5" style="padding-top: 60px;">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-product-name">Detalle del Producto</li>
+            </ol>
+        </nav>
 
-    <div class="product-detail-container">
-        <div class="row g-4 align-items-start">
-            <!-- Columna izquierda: Imagen -->
-            <div class="col-md-6">
-                <img src="assets/img/placeholder_producto_grande.jpg" id="product-image" class="product-detail-img img-fluid" alt="Imagen del Producto">
-            </div>
-
-            <!-- Columna derecha: Texto y botón -->
-            <div class="col-md-6">
-                <h1 id="product-name">Nombre del Producto</h1>
-                <p id="product-description">Descripción detallada del producto...</p>
-
-                <div id="product-options-section" class="mb-4" style="display:none;">
-                    <h4 class="product-options-title">Características y Opciones:</h4>
-                    <ul id="product-options-list" class="list-unstyled product-options-list"></ul>
+        <div class="product-detail-container">
+            <div class="row g-4 align-items-start">
+                
+                <!-- Columna izquierda: Imagen (HTML MODIFICADO) -->
+                <div class="col-md-6">
+                    <!-- Contenedor añadido para controlar el tamaño y centrado de la imagen -->
+                    <div class="image-container-detalle">
+                        <img src="assets/img/placeholder_producto_grande.jpg" id="product-image" class="product-detail-img" alt="Imagen del Producto">
+                    </div>
                 </div>
 
-                <h3 class="product-price-display">Precio: <span id="product-price-detail">$0.00</span></h3>
+                <!-- Columna derecha: Texto y botón -->
+                <div class="col-md-6">
+                    <h1 id="product-name">Nombre del Producto</h1>
+                    <p id="product-description">Descripción detallada del producto...</p>
 
-                <button class="btn btn-primary btn-lg botonAgregarTauro w-100"
-                        id="botonAgregarProductoDetalle" 
-                        data-id="" 
-                        data-nombre="" 
-                        data-precio="" 
-                        data-imagen="">
-                    <i class="bi bi-cart-plus-fill me-2"></i>Agregar al Carrito
-                </button>
+                    <div id="product-options-section" class="mb-4" style="display:none;">
+                        <h4 class="product-options-title">Características y Opciones:</h4>
+                        <ul id="product-options-list" class="list-unstyled product-options-list"></ul>
+                    </div>
+
+                    <h3 class="product-price-display">Precio: <span id="product-price-detail">$0.00</span></h3>
+
+                    <button class="btn btn-primary btn-lg botonAgregarTauro w-100"
+                            id="botonAgregarProductoDetalle" 
+                            data-id="" 
+                            data-nombre="" 
+                            data-precio="" 
+                            data-imagen="">
+                        <i class="bi bi-cart-plus-fill me-2"></i>Agregar al Carrito
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
 
     <!-- Footer -->
@@ -134,13 +162,13 @@
                 "grano-salta": { nombre: "Café Tostado Salta", precio: 900, imagen: "assets/img/cafe_salta_card.jpg", descripcion: "Café de altura, cuerpo intenso y notas a frutos secos.", opciones: ["Grano Entero 1kg", "Molido Medio 1kg"] },
                 "grano-bolivia": { nombre: "Café Tostado Bolivia", precio: 950, imagen: "assets/img/cafe_bolivia_card.jpg", descripcion: "Dulzor pronunciado, acidez brillante y notas a caramelo.", opciones: ["Grano Entero 500g", "Molido Fino 500g"] },
                 "grano-brasil": { nombre: "Café Tostado Brasil", precio: 850, imagen: "assets/img/cafe_brasil_card.jpg", descripcion: "Cuerpo medio, baja acidez, notas a chocolate y nuez.", opciones: ["Grano Entero 1kg", "Molido Grueso 1kg"] },
-                "capsula-colombia-10": { nombre: "Cápsulas Café Colombia (x10)", precio: 1500, imagen: "assets/img/placeholder_capsula_colombia.jpg", descripcion: "El balance perfecto de Colombia en tu cafetera de cápsulas.", opciones: ["Compatibles Nespresso"] },
-                "capsula-etiopia-10": { nombre: "Cápsulas Café Etiopía (x10)", precio: 1700, imagen: "assets/img/placeholder_capsula_etiopia.jpg", descripcion: "Notas florales y frutales ahora en formato cápsula.", opciones: ["Compatibles Nespresso"] },
-                "capsula-salta-10": { nombre: "Cápsulas Café Salta (x10)", precio: 1400, imagen: "assets/img/placeholder_capsula_salta.jpg", descripcion: "La intensidad de Salta en la comodidad de una cápsula.", opciones: ["Compatibles Nespresso"] },
+                "capsula-colombia-10": { nombre: "Cápsulas Café Colombia (x10)", precio: 1500, imagen: "assets/img/capsula_colombia.jpg", descripcion: "El balance perfecto de Colombia en tu cafetera de cápsulas.", opciones: ["Compatibles Nespresso"] },
+                "capsula-etiopia-10": { nombre: "Cápsulas Café Etiopía (x10)", precio: 1700, imagen: "assets/img/capsula_etiopia.jpg", descripcion: "Notas florales y frutales ahora en formato cápsula.", opciones: ["Compatibles Nespresso"] },
+                "capsula-salta-10": { nombre: "Cápsulas Café Salta (x10)", precio: 1400, imagen: "assets/img/capsula_salta.jpg", descripcion: "La intensidad de Salta en la comodidad de una cápsula.", opciones: ["Compatibles Nespresso"] },
                 "cafetera-barista": { nombre: "Cafetera Barista Profesional", precio: 50000, imagen: "assets/img/cafetera_barista_card.jpg", descripcion: "Para los amantes del espresso perfecto y el arte latte.", opciones: ["Garantía 1 año", "Color: Acero"] },
                 "cafetera-nespresso": { nombre: "Cafetera Símil Nespresso", precio: 25000, imagen: "assets/img/cafetera_nespresso_card.jpg", descripcion: "Diseño compacto y elegante para disfrutar nuestras cápsulas.", opciones: ["Garantía 1 año", "Color: Negro"] },
                 "cafetera-filtro": { nombre: "Cafetera Eléctrica de Filtro", precio: 15000, imagen: "assets/img/cafetera_filtro_card.jpg", descripcion: "Ideal para preparar varias tazas a la vez. Sabor clásico.", opciones: ["Garantía 1 año", "Capacidad: 1.2L"] },
-                "accesorio-filtros-30": { nombre: "Filtros Especiales (30 unidades)", precio: 500, imagen: "assets/img/placeholder_filtros.jpg", descripcion: "Filtros de papel de alta calidad para tu cafetera eléctrica.", opciones: ["Material: Papel Ecológico", "Tamaño: Nº4"] }
+                "accesorio-filtros-30": { nombre: "Filtros Especiales (30 unidades)", precio: 500, imagen: "assets/img/filtros_cafe.jpg", descripcion: "Filtros de papel de alta calidad para tu cafetera eléctrica.", opciones: ["Material: Papel Ecológico", "Tamaño: Nº4"] }
             };
 
             const params = new URLSearchParams(window.location.search);
@@ -189,7 +217,7 @@
                     elListaOpciones.innerHTML = '';
                     productoActual.opciones.forEach(opt => {
                         const li = document.createElement('li');
-                        li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${opt}`; // Espacio después del ícono
+                        li.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${opt}`;
                         elListaOpciones.appendChild(li);
                     });
                     elSeccionOpciones.style.display = 'block';
@@ -200,7 +228,7 @@
             
                 if(elNombre) elNombre.textContent = "Producto no disponible";
                 if(elDescripcion) elDescripcion.textContent = "Los detalles de este producto no están disponibles actualmente.";
-                if(elImagen) elImagen.style.display = 'none'; // Ocultar imagen si no hay
+                if(elImagen.parentElement) elImagen.parentElement.style.display = 'none'; // Ocultar contenedor de imagen si no hay producto
                 if(elPrecioSpan) elPrecioSpan.closest('h3').style.display = 'none'; // Ocultar precio
                 if(elBotonAgregar) elBotonAgregar.style.display = 'none'; // Ocultar botón
                 if(elSeccionOpciones) elSeccionOpciones.style.display = 'none'; // Ocultar opciones
@@ -211,8 +239,5 @@
 
     <script src="carrito.js"></script>
     <script src="script.js"></script>
-
-
-    
 </body>
 </html>

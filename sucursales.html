@@ -31,12 +31,12 @@
             margin-top: 2rem;
             margin-bottom: 4rem;
             }
-            .map-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--cafe-brown-light);
+            /* ESTILO AGREGADO PARA LOS MAPAS */
+            .map-iframe {
+                border: 1px solid #ddd; /* Borde sutil como el de la imagen anterior */
+                border-radius: 8px; /* Bordes redondeados */
+                width: 100%;
+                height: 350px; /* Altura ajustable según tu preferencia */
             }
             .breadcrumb-item a {
             color: var(--primary-accent);
@@ -174,39 +174,56 @@
         </ol>
         </nav>
 
-        <div class="page-container text-center">
-        <h1 class="section-title mb-4">Encuentra Nuestras Sucursales</h1>
-        <p class="lead mb-4">
+        <div class="page-container">
+        <h1 class="section-title mb-4 text-center">Encuentra Nuestras Sucursales</h1>
+        <p class="lead mb-5 text-center">
             Visítanos en cualquiera de nuestras acogedoras cafeterías y descubre
             el auténtico sabor de Tauro Café. ¡Te esperamos para compartir una
             experiencia única!
         </p>
 
-        <img
-            src="assets/img/mapa_sucursales_placeholder.jpg"
-            alt="Mapa de Sucursales Tauro Café"
-            class="img-fluid map-image shadow-sm"
-        />
-
-        <div class="row mt-5">
-            <div class="col-md-6">
-            <h4 class="text-start">Sucursal Centro</h4>
-            <p class="text-start">
-                <strong>Dirección:</strong> Av. Corrientes 1234, CABA<br />
-                <strong>Teléfono:</strong> (011) 4555-6789<br />
-                <strong>Horario:</strong> Lunes a Sábado de 8:00 a 20:00 hs.
-            </p>
+        <!-- ========= INICIO DE LA SECCIÓN MODIFICADA ========= -->
+        <div class="row">
+            <!-- Columna Sucursal Palermo -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="map-container mb-3 shadow-sm">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.774590393222!2d-58.42880502342207!3d-34.58457745657803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca7842511413%3A0xe54d6e9e49a883a!2sTauro%20%7C%20Caf%C3%A9%20de%20especialidad!5e0!3m2!1ses-419!2sar!4v1716301389270!5m2!1ses-419!2sar" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="map-iframe">
+                    </iframe>
+                </div>
+                <h4 class="mt-4">Sucursal Palermo</h4>
+                <p>
+                    <strong>Dirección:</strong> Malabia 1701, Palermo, CABA<br />
+                    <strong>Teléfono:</strong> (011) 4777-1234<br />
+                    <strong>Horario:</strong> Lunes a Domingo de 9:00 a 21:00 hs.
+                </p>
             </div>
-            <div class="col-md-6">
-            <h4 class="text-start">Sucursal Palermo</h4>
-            <p class="text-start">
-                <strong>Dirección:</strong> Jorge Luis Borges 2345, Palermo,
-                CABA<br />
-                <strong>Teléfono:</strong> (011) 4777-1234<br />
-                <strong>Horario:</strong> Lunes a Domingo de 9:00 a 21:00 hs.
-            </p>
+
+            <!-- Columna Sucursal Recoleta -->
+            <div class="col-lg-6">
+                <div class="map-container mb-3 shadow-sm">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.456185250436!2d-58.406987123421685!3d-34.59265275727181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9a147e6261%3A0xe324269e8b74c438!2sTauro!5e0!3m2!1ses-419!2sar!4v1716301452243!5m2!1ses-419!2sar" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="map-iframe">
+                    </iframe>
+                </div>
+                <h4 class="mt-4">Sucursal Recoleta</h4>
+                <p>
+                    <strong>Dirección:</strong> Dr. Tomás Manuel de Anchorena 1330, Recoleta, CABA<br />
+                    <strong>Teléfono:</strong> (011) 4555-6789<br /> <!-- Ajustar si es diferente -->
+                    <strong>Horario:</strong> Lunes a Sábado de 8:00 a 20:00 hs. <!-- Ajustar si es diferente -->
+                </p>
             </div>
         </div>
+        <!-- ========= FIN DE LA SECCIÓN MODIFICADA ========= -->
+
         </div>
     </div>
 

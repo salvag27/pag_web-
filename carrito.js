@@ -1,5 +1,4 @@
 
-
 let carrito = JSON.parse(localStorage.getItem('carritoTauroCafe')) || [];
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -9,18 +8,15 @@ document.addEventListener('DOMContentLoaded', function () {
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', function (e) {
             e.preventDefault();
-            // Obtener datos del producto desde los data-attributes del botón
             const id = this.getAttribute('data-id');
             const nombre = this.getAttribute('data-nombre');
-            const precio = parseFloat(this.getAttribute('data-precio')); // Convertir precio a número
-            const imagen = this.getAttribute('data-imagen'); // Nueva: obtener la imagen
-
+            const precio = parseFloat(this.getAttribute('data-precio'));
+            const imagen = this.getAttribute('data-imagen');
 
             if (id && nombre && !isNaN(precio) && imagen) {
                 agregarAlCarrito(id, nombre, precio, imagen);
             } else {
                 console.error("Faltan datos en el botón para agregar al carrito:", this.dataset);
-
             }
         });
     });
@@ -30,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarCarrito();
         });
     }
-    actualizarContadorIconoCarrito(); // Actualizar contador al cargar
+    actualizarContadorIconoCarrito();
 });
 
 function agregarAlCarrito(idProducto, nombreProducto, precioProducto, imagenProducto) {
@@ -38,14 +34,7 @@ function agregarAlCarrito(idProducto, nombreProducto, precioProducto, imagenProd
     if (itemEnCarrito) {
         itemEnCarrito.cantidad += 1;
     } else {
-
-        carrito.push({ 
-            id: idProducto, 
-            nombre: nombreProducto, 
-            precio: precioProducto, 
-            imagen: imagenProducto, // Nueva propiedad
-            cantidad: 1 
-        });
+        carrito.push({ id: idProducto, nombre: nombreProducto, precio: precioProducto, imagen: imagenProducto, cantidad: 1 });
     }
     localStorage.setItem('carritoTauroCafe', JSON.stringify(carrito));
     mostrarMensajeToast(`"${nombreProducto}" agregado al carrito.`);
@@ -54,12 +43,12 @@ function agregarAlCarrito(idProducto, nombreProducto, precioProducto, imagenProd
 
 function mostrarCarrito() {
     carrito = JSON.parse(localStorage.getItem('carritoTauroCafe')) || [];
-    const contenedor = document.getElementById('listaCarritoTauro'); // ID del contenedor en Tauro Café
+    const contenedor = document.getElementById('listaCarritoTauro');
     contenedor.innerHTML = ''; 
 
     if (carrito.length === 0) {
         contenedor.innerHTML = `<p class="text-center text-muted p-3">No hay productos en el carrito todavía.</p>`;
-        actualizarContadorIconoCarrito(); // Asegurar que el contador esté en 0
+        actualizarContadorIconoCarrito();
         return;
     }
 
@@ -84,14 +73,12 @@ function mostrarCarrito() {
         contenedor.appendChild(productoDiv);
     });
 
-    // Calcular y mostrar el total
     let total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
     const totalDiv = document.createElement('div');
     totalDiv.classList.add('mt-3', 'pt-3', 'border-top', 'text-end');
     totalDiv.innerHTML = `<h5>Total: <strong class="text-primary">$${total.toFixed(2)}</strong></h5>`;
     contenedor.appendChild(totalDiv);
 
-    // Botones de Vaciar y Pagar (si el carrito no está vacío)
     if (carrito.length > 0 && !document.getElementById('contenedorBotonesEdicionTauro')) {
         const contenedorBotonesEdicion = document.createElement('div');
         contenedorBotonesEdicion.id = `contenedorBotonesEdicionTauro`;
@@ -99,7 +86,6 @@ function mostrarCarrito() {
 
         const botonVaciar = document.createElement('button');
         botonVaciar.innerHTML = `Vaciar Carrito`;
-        botonVaciar.id = `botonVaciarCarrito`;
         botonVaciar.classList.add('btn', 'btn-outline-danger');
         botonVaciar.addEventListener('click', () => {
             carrito = [];
@@ -110,11 +96,10 @@ function mostrarCarrito() {
 
         const botonPagar = document.createElement('button');
         botonPagar.innerHTML = `Finalizar Compra`;
-        botonPagar.id = `botonPagar`;
         botonPagar.classList.add('btn', 'btn-primary');
         botonPagar.addEventListener('click', () => {
-            alert('Procediendo al pago (simulación)...');
         
+            window.location.href = 'pago.html';
         });
 
         contenedorBotonesEdicion.appendChild(botonVaciar);
@@ -128,7 +113,6 @@ function mostrarCarrito() {
 
 function asignarListenersBotonesInternosCarrito() {
     document.querySelectorAll('.botonAumentarCantidad').forEach(boton => {
-
         let nuevoBoton = boton.cloneNode(true);
         boton.parentNode.replaceChild(nuevoBoton, boton);
         nuevoBoton.addEventListener('click', () => {
@@ -165,7 +149,7 @@ function asignarListenersBotonesInternosCarrito() {
         boton.parentNode.replaceChild(nuevoBoton, boton);
         nuevoBoton.addEventListener('click', () => {
             const id = nuevoBoton.getAttribute('data-id');
-            carrito = carrito.filter(p => p.id !== id); // Filtrar para eliminar
+            carrito = carrito.filter(p => p.id !== id);
             localStorage.setItem('carritoTauroCafe', JSON.stringify(carrito));
             mostrarCarrito();
             mostrarMensajeToast("Producto eliminado del carrito.");
