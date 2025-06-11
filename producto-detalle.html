@@ -11,18 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS AÑADIDO PARA AJUSTAR LA IMAGEN DEL PRODUCTO --- */
         .image-container-detalle {
             width: 100%;
-            height: 450px; /* Altura fija para el contenedor de la imagen */
+            height: 450px; 
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f8f9fa; /* Un fondo gris claro para el espacio sobrante */
-            border-radius: 8px; /* Bordes redondeados consistentes */
-            border: 1px solid #dee2e6; /* Borde sutil */
-            overflow: hidden; /* Asegura que nada se salga del contenedor */
-            margin-bottom: 1rem; /* Espacio por si se ve en móvil */
+            background-color: #f8f9fa; 
+            border-radius: 8px;
+            border: 1px solid #dee2e6; 
+            overflow: hidden; 
+            margin-bottom: 1rem; 
         }
 
         .product-detail-img {
@@ -30,9 +29,9 @@
             max-height: 100%;
             width: auto;
             height: auto;
-            object-fit: contain; /* La magia sucede aquí */
+            object-fit: contain; 
         }
-        /* -------------------------------------------------------- */
+
     </style>
 </head>
 <body>
@@ -69,7 +68,7 @@
         </div>
     </nav>
 
-    <!-- OFFCANVAS DEL CARRITO-->
+
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="carritoOffcanvasTauro" aria-labelledby="carritoOffcanvasTauroLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="carritoOffcanvasTauroLabel">Tu Carrito - Tauro Café</h5>
@@ -82,7 +81,7 @@
         </div>
     </div>
     
-    <!-- Contenido Principal de la Página de Detalle -->
+
     <main class="container mt-5 mb-5" style="padding-top: 60px;">
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
@@ -94,15 +93,14 @@
         <div class="product-detail-container">
             <div class="row g-4 align-items-start">
                 
-                <!-- Columna izquierda: Imagen (HTML MODIFICADO) -->
+                <!-- Columna izquierda -->
                 <div class="col-md-6">
-                    <!-- Contenedor añadido para controlar el tamaño y centrado de la imagen -->
                     <div class="image-container-detalle">
                         <img src="assets/img/placeholder_producto_grande.jpg" id="product-image" class="product-detail-img" alt="Imagen del Producto">
                     </div>
                 </div>
 
-                <!-- Columna derecha: Texto y botón -->
+                <!-- Columna derech  -->
                 <div class="col-md-6">
                     <h1 id="product-name">Nombre del Producto</h1>
                     <p id="product-description">Descripción detallada del producto...</p>
@@ -228,10 +226,10 @@
             
                 if(elNombre) elNombre.textContent = "Producto no disponible";
                 if(elDescripcion) elDescripcion.textContent = "Los detalles de este producto no están disponibles actualmente.";
-                if(elImagen.parentElement) elImagen.parentElement.style.display = 'none'; // Ocultar contenedor de imagen si no hay producto
-                if(elPrecioSpan) elPrecioSpan.closest('h3').style.display = 'none'; // Ocultar precio
-                if(elBotonAgregar) elBotonAgregar.style.display = 'none'; // Ocultar botón
-                if(elSeccionOpciones) elSeccionOpciones.style.display = 'none'; // Ocultar opciones
+                if(elImagen.parentElement) elImagen.parentElement.style.display = 'none'; 
+                if(elPrecioSpan) elPrecioSpan.closest('h3').style.display = 'none'; 
+                if(elBotonAgregar) elBotonAgregar.style.display = 'none'; 
+                if(elSeccionOpciones) elSeccionOpciones.style.display = 'none'; 
                 console.error("Producto no encontrado con ID:", productoId, "o elementos del DOM faltantes.");
             }
         });

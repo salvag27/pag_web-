@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         return;
     }
-
     historial.sort((a, b) => b.id - a.id);
 
     historial.forEach(compra => {

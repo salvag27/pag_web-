@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (totalPago) totalPago.textContent = `$${totalGeneral.toFixed(2)}`;
     }
 
-    // Lógica para mostrar/ocultar campos de envío/retiro
     const radioEnvio = document.getElementById('envio');
     const radioRetiro = document.getElementById('retiro');
     const camposEnvio = document.getElementById('campos-envio');
@@ -61,28 +60,51 @@ document.addEventListener('DOMContentLoaded', function () {
     radioEnvio.addEventListener('change', toggleEntrega);
     radioRetiro.addEventListener('change', toggleEntrega);
 
-    // Simulación de envío de formulario
     if (formulario) {
         formulario.addEventListener('submit', function (event) {
             event.preventDefault();
             event.stopPropagation();
             
             if (formulario.checkValidity()) {
-                // Formulario válido, simular compra
-                alert('¡Compra realizada con éxito! Gracias por elegir Tauro Café.');
+
+                const historial = JSON.parse(localStorage.getItem('historialComprasTauroCafe')) || [];
+                const carritoActual = JSON.parse(localStorage.getItem('carritoTauroCafe')) || [];
+
+                if(carritoActual.length === 0) {
+                    alert("Error: El carrito está vacío.");
+                    return;
+                }
                 
-                // Vaciar carrito
+                const totalCompra = carritoActual.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+                
+                const nuevaCompra = {
+                    id: Date.now(), 
+                    fecha: new Date().toLocaleDateString('es-AR'),
+                    items: carritoActual,
+                    total: totalCompra,
+                    entrega: {
+                        metodo: radioEnvio.checked ? 'Envío a Domicilio' : 'Retirar en Sucursal',
+                        detalle: radioEnvio.checked ? inputDireccion.value : selectSucursal.options[selectSucursal.selectedIndex].text,
+                        contacto: {
+                            email: document.getElementById('email').value,
+                            telefono: document.getElementById('telefono').value
+                        }
+                    }
+                };
+
+                historial.push(nuevaCompra);
+                localStorage.setItem('historialComprasTauroCafe', JSON.stringify(historial));
+                // Vacia el carrito actual
                 localStorage.removeItem('carritoTauroCafe');
-                
-                // Redirigir al inicio
-                window.location.href = 'index.html';
+
+                alert('¡Compra realizada con éxito! Serás redirigido a tu historial de compras.');
+                window.location.href = 'mis-compras.html';
             }
             
             formulario.classList.add('was-validated');
         });
     }
 
-    // Carga inicial
     renderizarResumen();
-    toggleEntrega(); // Asegura que el estado inicial de los radio buttons sea correcto
+    toggleEntrega();
 });
